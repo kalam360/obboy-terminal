@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/frame/docs',
     component: Layout,
     meta: {
-      title: '外部页面',
+      title: 'External page',
       sort: 8,
       icon: renderIcon(DesktopOutline),
     },
@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'docs',
         name: 'frame-docs',
         meta: {
-          title: '项目文档(内嵌)',
+          title: 'Project documentation(embedded)',
           frameSrc: 'https://naive-ui-admin-docs.vercel.app',
         },
         component: IFrame,
@@ -30,7 +30,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'naive',
         name: 'frame-naive',
         meta: {
-          title: 'NaiveUi(内嵌)',
+          title: 'NaiveUi(embedded)',
           frameSrc: 'https://www.naiveui.com',
         },
         component: IFrame,

@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'https://naive-ui-admin-docs.vercel.app',
     component: Layout,
     meta: {
-      title: '项目文档',
+      title: 'Project documentation',
       icon: renderIcon(DocumentTextOutline),
       sort: 9,
     },

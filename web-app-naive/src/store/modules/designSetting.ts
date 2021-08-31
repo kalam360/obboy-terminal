@@ -5,11 +5,11 @@ import designSetting from '@/settings/designSetting';
 const { darkTheme, appTheme, appThemeList } = designSetting;
 
 interface DesignSettingState {
-  //深色主题
+  //The dark theme
   darkTheme: boolean;
-  //系统风格
+  //System style
   appTheme: string;
-  //系统内置风格
+  //The built-in style
   appThemeList: string[];
 }
 

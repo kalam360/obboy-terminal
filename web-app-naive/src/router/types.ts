@@ -18,19 +18,19 @@ export interface AppRouteRecordRaw extends Omit<RouteRecordRaw, 'meta'> {
 }
 
 export interface Meta {
-  // 名称
+  // The name of the
   title: string;
-  // 是否忽略权限
+  // Whether to ignore permissions
   ignoreAuth?: boolean;
   permissions?: string[];
-  // 是否不缓存
+  // If no cache
   noKeepAlive?: boolean;
-  // 是否固定在tab上
+  // Whether on the TAB
   affix?: boolean;
-  // tab上的图标
+  // Icon on the TAB
   icon?: string;
-  // 跳转地址
+  // Jump address
   frameSrc?: string;
-  // 外链跳转地址
+  // Outside the chain jump address
   externalLink?: string;
 }

@@ -6,14 +6,14 @@ import { renderIcon, renderNew } from '@/utils';
 const routeName = 'comp';
 
 /**
- * @param name 路由名称, 必须设置,且不能重名
- * @param meta 路由元信息（路由附带扩展信息）
- * @param redirect 重定向地址, 访问这个路由时,自定进行重定向
- * @param meta.disabled 禁用整个菜单
- * @param meta.title 菜单名称
- * @param meta.icon 菜单图标
- * @param meta.keepAlive 缓存该路由
- * @param meta.sort 排序越小越排前
+ * @param name Name of routing, must be set, and cannot name repetition
+ * @param meta RMB routing information (routing with extended information)
+ * @param redirect Redirection address, access the routing, set the redirect
+ * @param meta.disabled Disable the menu
+ * @param meta.title The name of the menu
+ * @param meta.icon The menu icon
+ * @param meta.keepAlive Cache chain
+ * @param meta.sort Sort the smaller top
  *
  * */
 const routes: Array<RouteRecordRaw> = [
@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Layout,
     redirect: '/comp/table',
     meta: {
-      title: '组件示例',
+      title: 'Components in the sample',
       icon: renderIcon(WalletOutlined),
       sort: 8,
     },
@@ -34,14 +34,14 @@ const routes: Array<RouteRecordRaw> = [
         redirect: '/comp/table/basic',
         component: ParentLayout,
         meta: {
-          title: '表格',
+          title: 'form',
         },
         children: [
           {
             path: 'basic',
             name: `${routeName}_table_basic`,
             meta: {
-              title: '基础表格',
+              title: 'Basic form',
             },
             component: () => import('@/views/comp/table/basic.vue'),
           },
@@ -49,7 +49,7 @@ const routes: Array<RouteRecordRaw> = [
             path: 'editCell',
             name: `${routeName}_table_editCell`,
             meta: {
-              title: '单元格编辑',
+              title: 'The cell to edit',
             },
             component: () => import('@/views/comp/table/editCell.vue'),
           },
@@ -57,7 +57,7 @@ const routes: Array<RouteRecordRaw> = [
             path: 'editRow',
             name: `${routeName}_table_editRow`,
             meta: {
-              title: '整行编辑',
+              title: 'The whole line edit',
             },
             component: () => import('@/views/comp/table/editRow.vue'),
           },
@@ -69,14 +69,14 @@ const routes: Array<RouteRecordRaw> = [
         redirect: '/comp/form/basic',
         component: ParentLayout,
         meta: {
-          title: '表单',
+          title: 'The form',
         },
         children: [
           {
             path: 'basic',
             name: `${routeName}_form_basic`,
             meta: {
-              title: '基础使用',
+              title: 'Based on using',
             },
             component: () => import('@/views/comp/form/basic.vue'),
           },
@@ -94,7 +94,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'upload',
         name: `${routeName}_upload`,
         meta: {
-          title: '上传图片',
+          title: 'To upload pictures',
         },
         component: () => import('@/views/comp/upload/index.vue'),
       },
@@ -102,7 +102,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'modal',
         name: `${routeName}_modal`,
         meta: {
-          title: '弹窗扩展',
+          title: 'Pop-up extension',
         },
         component: () => import('@/views/comp/modal/index.vue'),
       },
@@ -110,7 +110,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'richtext',
         name: `richtext`,
         meta: {
-          title: '富文本',
+          title: 'The rich text',
           extra: renderNew(),
         },
         component: () => import('@/views/comp/richtext/vue-quill.vue'),
@@ -119,7 +119,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'drag',
         name: `Drag`,
         meta: {
-          title: '拖拽',
+          title: 'Drag and drop',
           extra: renderNew(),
         },
         component: () => import('@/views/comp/drag/index.vue'),

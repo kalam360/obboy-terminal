@@ -1,4 +1,4 @@
-export const ACCESS_TOKEN = 'Access-Token'; // 用户token
-export const CURRENT_USER = 'Current-User'; // 当前用户信息
-export const IS_LOCKSCREEN = 'Is-Lockscreen'; // 是否锁屏
-export const TABS_ROUTES = 'Tabs-Routes'; // 标签页
+export const ACCESS_TOKEN = 'Access-Token'; // The user token
+export const CURRENT_USER = 'Current-User'; // The current user information
+export const IS_LOCKSCREEN = 'Is-Lockscreen'; // Whether the lock screen
+export const TABS_ROUTES = 'Tabs-Routes'; // TAB

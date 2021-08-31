@@ -11,7 +11,7 @@ import type { RequestOptions, CreateAxiosOptions, Result } from './types';
 export * from './axiosTransform';
 
 /**
- * @description:  axios模块
+ * @description:  Axios module
  */
 export class VAxios {
   private axiosInstance: AxiosInstance;
@@ -24,7 +24,7 @@ export class VAxios {
   }
 
   /**
-   * @description:  创建axios实例
+   * @description:  Create axios instance
    */
   private createAxios(config: CreateAxiosOptions): void {
     this.axiosInstance = axios.create(config);
@@ -40,7 +40,7 @@ export class VAxios {
   }
 
   /**
-   * @description: 重新配置axios
+   * @description: Reconfigure axios
    */
   configAxios(config: CreateAxiosOptions) {
     if (!this.axiosInstance) {
@@ -50,7 +50,7 @@ export class VAxios {
   }
 
   /**
-   * @description: 设置通用header
+   * @description: Set the general header
    */
   setHeader(headers: any): void {
     if (!this.axiosInstance) {
@@ -60,7 +60,7 @@ export class VAxios {
   }
 
   /**
-   * @description: 拦截器配置
+   * @description: The interceptor configuration
    */
   private setupInterceptors() {
     const transform = this.getTransform();
@@ -76,7 +76,7 @@ export class VAxios {
 
     const axiosCanceler = new AxiosCanceler();
 
-    // 请求拦截器配置处理
+    // Request interceptor configuration processing
     this.axiosInstance.interceptors.request.use((config: AxiosRequestConfig) => {
       const { headers: { ignoreCancelToken } = { ignoreCancelToken: false } } = config;
       !ignoreCancelToken && axiosCanceler.addPending(config);
@@ -86,12 +86,12 @@ export class VAxios {
       return config;
     }, undefined);
 
-    // 请求拦截器错误捕获
+    // Request error trapping interceptor
     requestInterceptorsCatch &&
       isFunction(requestInterceptorsCatch) &&
       this.axiosInstance.interceptors.request.use(undefined, requestInterceptorsCatch);
 
-    // 响应结果拦截器处理
+    //Interceptors handle response results
     this.axiosInstance.interceptors.response.use((res: AxiosResponse<any>) => {
       res && axiosCanceler.removePending(res.config);
       if (responseInterceptors && isFunction(responseInterceptors)) {
@@ -100,14 +100,14 @@ export class VAxios {
       return res;
     }, undefined);
 
-    // 响应结果拦截器错误捕获
+    // Response result error trapping interceptor
     responseInterceptorsCatch &&
       isFunction(responseInterceptorsCatch) &&
       this.axiosInstance.interceptors.response.use(undefined, responseInterceptorsCatch);
   }
 
   // /**
-  //  * @description:  文件上传
+  //  * @description:   
   //  */
   // uploadFiles(config: AxiosRequestConfig, params: File[]) {
   //   const formData = new FormData();
@@ -127,7 +127,7 @@ export class VAxios {
   // }
 
   /**
-   * @description:   请求方法
+   * @description:   Request method
    */
   request<T = any>(config: AxiosRequestConfig, options?: RequestOptions): Promise<T> {
     let conf: AxiosRequestConfig = cloneDeep(config);
@@ -145,7 +145,7 @@ export class VAxios {
       this.axiosInstance
         .request<any, AxiosResponse<Result>>(conf)
         .then((res: AxiosResponse<Result>) => {
-          // 请求是否被取消
+          // The request has been cancelled
           const isCancel = axios.isCancel(res);
           if (transformRequestData && isFunction(transformRequestData) && !isCancel) {
             const ret = transformRequestData(res, opt);

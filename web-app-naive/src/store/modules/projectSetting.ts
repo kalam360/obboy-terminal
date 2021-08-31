@@ -17,16 +17,16 @@ const {
 } = projectSetting;
 
 interface ProjectSettingState {
-  navMode: string; //导航模式
-  navTheme: string; //导航风格
-  headerSetting: IheaderSetting; //顶部设置
-  showFooter: boolean; //页脚
-  menuSetting: ImenuSetting; //多标签
-  multiTabsSetting: ImultiTabsSetting; //多标签
-  crumbsSetting: IcrumbsSetting; //面包屑
-  permissionMode: string; //权限模式
-  isPageAnimate: boolean; //是否开启路由动画
-  pageAnimateType: string; //路由动画类型
+  navMode: string; //Navigation mode
+  navTheme: string; //Navigation style
+  headerSetting: IheaderSetting; //At the top of the set
+  showFooter: boolean; //The footer
+  menuSetting: ImenuSetting; //More labels
+  multiTabsSetting: ImultiTabsSetting; //More labels
+  crumbsSetting: IcrumbsSetting; //Bread crumbs
+  permissionMode: string; //Access mode
+  isPageAnimate: boolean; //Whether open routing animation
+  pageAnimateType: string; //Routing animation types
 }
 
 export const useProjectSettingStore = defineStore({

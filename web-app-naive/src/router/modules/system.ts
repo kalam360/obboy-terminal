@@ -4,14 +4,14 @@ import { OptionsSharp } from '@vicons/ionicons5';
 import { renderIcon } from '@/utils/index';
 
 /**
- * @param name 路由名称, 必须设置,且不能重名
- * @param meta 路由元信息（路由附带扩展信息）
- * @param redirect 重定向地址, 访问这个路由时,自定进行重定向
- * @param meta.disabled 禁用整个菜单
- * @param meta.title 菜单名称
- * @param meta.icon 菜单图标
- * @param meta.keepAlive 缓存该路由
- * @param meta.sort 排序越小越排前
+ * @param name Name of routing, must be set, and cannot name repetition
+ * @param meta RMB routing information (routing with extended information)
+ * @param redirect Redirection address, access the routing, set the redirect
+ * @param meta.disabled Disable the menu
+ * @param meta.title The name of the menu
+ * @param meta.icon The menu icon
+ * @param meta.keepAlive Cache chain
+ * @param meta.sort Sort the smaller top
  *
  * */
 const routes: Array<RouteRecordRaw> = [
@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
     redirect: '/system/menu',
     component: Layout,
     meta: {
-      title: '系统设置',
+      title: 'System Settings',
       icon: renderIcon(OptionsSharp),
       sort: 1,
     },
@@ -30,7 +30,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'menu',
         name: 'system_menu',
         meta: {
-          title: '菜单权限管理',
+          title: 'Rights management menu',
         },
         component: () => import('@/views/system/menu/menu.vue'),
       },
@@ -38,7 +38,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'role',
         name: 'system_role',
         meta: {
-          title: '角色权限管理',
+          title: 'Role authorization management',
         },
         component: () => import('@/views/system/role/role.vue'),
       },

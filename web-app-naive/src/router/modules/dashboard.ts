@@ -6,14 +6,14 @@ import { renderIcon } from '@/utils/index';
 const routeName = 'dashboard';
 
 /**
- * @param name 路由名称, 必须设置,且不能重名
- * @param meta 路由元信息（路由附带扩展信息）
- * @param redirect 重定向地址, 访问这个路由时,自定进行重定向
- * @param meta.disabled 禁用整个菜单
- * @param meta.title 菜单名称
- * @param meta.icon 菜单图标
- * @param meta.keepAlive 缓存该路由
- * @param meta.sort 排序越小越排前
+ * @param name Name of routing, must be set, and cannot name repetition
+ * @param meta RMB routing information (routing with extended information)
+ * @param redirect Redirection address, access the routing, set the redirect
+ * @param meta.disabled Disable the menu
+ * @param meta.title The name of the menu
+ * @param meta.icon The menu icon
+ * @param meta.keepAlive Cache chain
+ * @param meta.sort Sort the smaller top
  * */
 const routes: Array<RouteRecordRaw> = [
   {
@@ -32,7 +32,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'console',
         name: `${routeName}_console`,
         meta: {
-          title: '主控台',
+          title: 'Master station',
           permissions: ['dashboard_console'],
         },
         component: () => import('@/views/dashboard/console/console.vue'),
@@ -41,7 +41,7 @@ const routes: Array<RouteRecordRaw> = [
       //   path: 'monitor',
       //   name: `${ routeName }_monitor`,
       //   meta: {
-      //     title: '监控页',
+      //     title: 'Monitor the page',
       //     permissions: ['dashboard_monitor']
       //   },
       //   component: () => import('@/views/dashboard/monitor/monitor.vue')
@@ -50,7 +50,7 @@ const routes: Array<RouteRecordRaw> = [
         path: 'workplace',
         name: `${routeName}_workplace`,
         meta: {
-          title: '工作台',
+          title: 'The workbench',
           keepAlive: true,
           permissions: ['dashboard_workplace'],
         },

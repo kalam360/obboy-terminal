@@ -57,7 +57,7 @@ export const useUserStore = defineStore({
     setUserInfo(info) {
       this.info = info;
     },
-    // 登录
+    // The login
     async login(userInfo) {
       try {
         const response = await login(userInfo);
@@ -76,7 +76,7 @@ export const useUserStore = defineStore({
       }
     },
 
-    // 获取用户信息
+    // Get the user information
     GetInfo() {
       const that = this;
       return new Promise((resolve, reject) => {
@@ -99,7 +99,7 @@ export const useUserStore = defineStore({
       });
     },
 
-    // 登出
+    // logout
     async logout() {
       this.setPermissions([]);
       this.setUserInfo('');

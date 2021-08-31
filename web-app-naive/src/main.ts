@@ -18,16 +18,16 @@ async function bootstrap() {
   // Registered global common naive - UI components
   setupNaive(app);
 
-  // 注册全局自定义组件
+  // Registered global custom components
   //setupCustomComponents();
 
-  // 注册全局自定义指令，如：v-permission权限指令
+  // Registered global custom commands, such as: v-Permission to access directives
   setupDirectives(app);
 
-  // 注册全局方法，如：app.config.globalProperties.$message = message
+  // Global registration methods, such as: app.config.globalProperties.$message = message
   //setupGlobalMethods(app);
 
-  // 挂载状态管理
+  // Mount the state management
   setupStore(app);
 
   // priority to mount the Provider to solve routing guard, can be used in the Axios, Dialog, such as Message, etc
