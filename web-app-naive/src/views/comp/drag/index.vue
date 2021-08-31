@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="n-layout-page-header">
-      <n-card :bordered="false" title="拖拽"> 常用于卡片，事项，预约，流程，计划等， </n-card>
+      <n-card :bordered="false" title="Drag and drop"> Often used in card, matters, appointments, processes, plans, etc., </n-card>
     </div>
 
-    <n-alert title="花式拖拽演示" type="info" class="mt-4">
-      每个卡片，都可以上下拖拽顺序，另外不同卡片，也可以拖拽过去，拖拽过来，都不在话下呢，快试试O(∩_∩)O哈哈~
+    <n-alert title="Fancy drag the demo" type="info" class="mt-4">
+      Each card, can drag the up and down the order, the other different CARDS, can also drag and drop in the past, drag and drop to come over, is a cinch, fast try O(∩_∩)O ha ha~
     </n-alert>
 
     <n-grid
@@ -17,13 +17,13 @@
     >
       <n-grid-item>
         <NCard
-          title="需求池"
+          title="Demand pool"
           :segmented="{ content: 'hard', footer: 'hard' }"
           size="small"
           :bordered="false"
         >
           <template #header-extra>
-            <n-tag type="info">月</n-tag>
+            <n-tag type="info">month</n-tag>
           </template>
 
           <Draggable
@@ -35,7 +35,7 @@
           >
             <template #item="{ element }">
               <div class="cursor-move draggable-li">
-                <n-tag type="info">需求</n-tag><span class="ml-2">{{ element.name }}</span>
+                <n-tag type="info">demand</n-tag><span class="ml-2">{{ element.name }}</span>
               </div>
             </template>
           </Draggable>
@@ -44,13 +44,13 @@
 
       <n-grid-item>
         <NCard
-          title="开发中"
+          title="The development of"
           :segmented="{ content: 'hard', footer: 'hard' }"
           size="small"
           :bordered="false"
         >
           <template #header-extra>
-            <n-tag type="info">月</n-tag>
+            <n-tag type="info">month</n-tag>
           </template>
 
           <Draggable
@@ -62,7 +62,7 @@
           >
             <template #item="{ element }">
               <div class="cursor-move draggable-li">
-                <n-tag type="warning">开发中</n-tag><span class="ml-2">{{ element.name }}</span>
+                <n-tag type="warning">The development of</n-tag><span class="ml-2">{{ element.name }}</span>
               </div>
             </template>
           </Draggable>
@@ -71,13 +71,13 @@
 
       <n-grid-item>
         <NCard
-          title="已完成"
+          title="Has been completed"
           :segmented="{ content: 'hard', footer: 'hard' }"
           size="small"
           :bordered="false"
         >
           <template #header-extra>
-            <n-tag type="info">月</n-tag>
+            <n-tag type="info">month</n-tag>
           </template>
           <Draggable
             class="draggable-ul"
@@ -88,7 +88,7 @@
           >
             <template #item="{ element }">
               <div class="cursor-move draggable-li">
-                <n-tag type="error">已完成</n-tag><span class="ml-2">{{ element.name }}</span>
+                <n-tag type="error">Has been completed</n-tag><span class="ml-2">{{ element.name }}</span>
               </div>
             </template>
           </Draggable>
@@ -97,13 +97,13 @@
 
       <n-grid-item>
         <NCard
-          title="已验收"
+          title="Acceptance and"
           :segmented="{ content: 'hard', footer: 'hard' }"
           size="small"
           :bordered="false"
         >
           <template #header-extra>
-            <n-tag type="info">月</n-tag>
+            <n-tag type="info">month</n-tag>
           </template>
           <Draggable
             class="draggable-ul"
@@ -114,7 +114,7 @@
           >
             <template #item="{ element }">
               <div class="cursor-move draggable-li">
-                <n-tag type="success">已验收</n-tag><span class="ml-2">{{ element.name }}</span>
+                <n-tag type="success">Acceptance and</n-tag><span class="ml-2">{{ element.name }}</span>
               </div>
             </template>
           </Draggable>
@@ -129,21 +129,21 @@
   import Draggable from 'vuedraggable';
 
   const demandList = reactive([
-    { name: '预约表单页面，能填写预约相关信息', id: 1 },
-    { name: '促销活动页面，包含促销广告展示', id: 2 },
-    { name: '商品列表，需要一个到货提醒功能', id: 3 },
-    { name: '商品需要一个评价功能', id: 4 },
-    { name: '商品图片需要提供放大镜', id: 5 },
-    { name: '订单需要提供删除到回收站', id: 6 },
-    { name: '用户头像上传，需要支持裁剪', id: 7 },
-    { name: '据说Vue3.2发布了，setup啥时候支持？', id: 8 },
+    { name: 'Booking form page, can fill in relevant information', id: 1 },
+    { name: 'Promotion page, contains the promotional advertising display', id: 2 },
+    { name: 'Commodity list, remind function needs a the arrival of the goods', id: 3 },
+    { name: 'Goods need an evaluation function', id: 4 },
+    { name: 'Product image needs to provide a magnifying glass', id: 5 },
+    { name: 'Orders need to delete to the recycle bin', id: 6 },
+    { name: 'Users upload picture, need support for tailoring', id: 7 },
+    { name: 'Setup the Vue3.2 is said to be released, what time support？', id: 8 },
   ]);
 
-  const exploitList = reactive([{ name: '商品图片需要提供放大镜', id: 5 }]);
+  const exploitList = reactive([{ name: 'Product image needs to provide a magnifying glass', id: 5 }]);
 
-  const completeList = reactive([{ name: '商品图片需要提供放大镜', id: 5 }]);
+  const completeList = reactive([{ name: 'Product image needs to provide a magnifying glass', id: 5 }]);
 
-  const approvedList = reactive([{ name: '商品图片需要提供放大镜', id: 5 }]);
+  const approvedList = reactive([{ name: 'Product image needs to provide a magnifying glass', id: 5 }]);
 </script>
 
 <style lang="less" scoped>

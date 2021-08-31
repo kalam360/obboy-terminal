@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="n-layout-page-header">
-      <n-card :bordered="false" title="基础表单"> 基础表单，用于向用户收集表单信息 </n-card>
+      <n-card :bordered="false" title="Based on the form"> Basic form, used to collect the form from the user information </n-card>
     </div>
     <n-card :bordered="false" class="mt-4 proCard">
       <div class="BasicForm">
         <BasicForm
-          submitButtonText="提交预约"
+          submitButtonText="Submit the booking"
           layout="horizontal"
           :gridProps="{ cols: 1 }"
           :schemas="schemas"
@@ -30,22 +30,22 @@
     {
       field: 'name',
       component: 'NInput',
-      label: '姓名',
-      labelMessage: '这是一个提示',
+      label: 'The name',
+      labelMessage: 'This is a hint',
       componentProps: {
-        placeholder: '请输入姓名',
+        placeholder: 'Please enter your name',
         onInput: (e: any) => {
           console.log(e);
         },
       },
-      rules: [{ required: true, message: '请输入姓名', trigger: ['blur'] }],
+      rules: [{ required: true, message: 'Please enter your name', trigger: ['blur'] }],
     },
     {
       field: 'mobile',
       component: 'NInputNumber',
-      label: '手机',
+      label: 'Mobile phone',
       componentProps: {
-        placeholder: '请输入手机号码',
+        placeholder: 'Please enter the phone number',
         showButton: false,
         onInput: (e: any) => {
           console.log(e);
@@ -55,16 +55,16 @@
     {
       field: 'type',
       component: 'NSelect',
-      label: '类型',
+      label: 'type',
       componentProps: {
-        placeholder: '请选择类型',
+        placeholder: 'Please select the type',
         options: [
           {
-            label: '舒适性',
+            label: 'comfort',
             value: 1,
           },
           {
-            label: '经济性',
+            label: 'economy',
             value: 2,
           },
         ],
@@ -76,7 +76,7 @@
     {
       field: 'makeDate',
       component: 'NDatePicker',
-      label: '预约时间',
+      label: 'To make an appointment time',
       componentProps: {
         type: 'date',
         clearable: true,
@@ -89,7 +89,7 @@
     {
       field: 'makeTime',
       component: 'NTimePicker',
-      label: '停留时间',
+      label: 'Residence time',
       componentProps: {
         clearable: true,
         onUpdateValue: (e: any) => {
@@ -100,20 +100,20 @@
     {
       field: 'makeProject',
       component: 'NCheckbox',
-      label: '预约项目',
+      label: 'Make an appointment to project',
       componentProps: {
-        placeholder: '请选择预约项目',
+        placeholder: 'Please select a booking',
         options: [
           {
-            label: '种牙',
+            label: 'Kind of teeth',
             value: 1,
           },
           {
-            label: '补牙',
+            label: 'fillings',
             value: 2,
           },
           {
-            label: '根管',
+            label: 'Root canal',
             value: 3,
           },
         ],
@@ -125,15 +125,15 @@
     {
       field: 'makeSource',
       component: 'NRadioGroup',
-      label: '来源',
+      label: 'source',
       componentProps: {
         options: [
           {
-            label: '网上',
+            label: 'online',
             value: 1,
           },
           {
-            label: '门店',
+            label: 'stores',
             value: 2,
           },
         ],
@@ -144,8 +144,8 @@
     },
     {
       field: 'status',
-      label: '状态',
-      //插槽
+      label: 'state',
+      //slot
       slot: 'statusSlot',
     },
   ];
