@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="n-layout-page-header">
-      <n-card :bordered="false" title="基础表单">
-        表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。表单域标签也可支持响应式。
+      <n-card :bordered="false" title="Based on the form">
+        Form is used to collect or verify the information from the user pages, basic form is common in less data item form.The label for the field can also support response type.
       </n-card>
     </div>
     <n-card :bordered="false" class="mt-4 proCard">
@@ -16,46 +16,46 @@
             ref="formRef"
             class="py-8"
           >
-            <n-form-item label="预约姓名1" path="name">
-              <n-input v-model:value="formValue.name" placeholder="输入姓名" />
+            <n-form-item label="Reservation name 1" path="name">
+              <n-input v-model:value="formValue.name" placeholder="Enter the name" />
             </n-form-item>
-            <n-form-item label="预约号码" path="mobile">
-              <n-input placeholder="电话号码" v-model:value="formValue.mobile" />
+            <n-form-item label="The reservation number" path="mobile">
+              <n-input placeholder="The phone number" v-model:value="formValue.mobile" />
             </n-form-item>
-            <n-form-item label="预约时间" path="datetime">
+            <n-form-item label="To make an appointment time" path="datetime">
               <n-date-picker type="datetime" v-model:value="formValue.datetime" />
             </n-form-item>
-            <n-form-item label="预约医生" path="doctor">
+            <n-form-item label="Doctor's appointments" path="doctor">
               <n-select
-                placeholder="请选择预约医生"
+                placeholder="Please select a doctor's appointments"
                 :options="doctorList"
                 v-model:value="formValue.doctor"
               />
             </n-form-item>
-            <n-form-item label="预约事项" path="matter">
+            <n-form-item label="To make an appointment matters" path="matter">
               <n-select
-                placeholder="请选择预约事项"
+                placeholder="Please select an appointment matters"
                 :options="matterList"
                 v-model:value="formValue.matter"
                 multiple
               />
             </n-form-item>
-            <n-form-item label="性别" path="sex">
+            <n-form-item label="gender" path="sex">
               <n-radio-group v-model:value="formValue.sex" name="sex">
                 <n-space>
-                  <n-radio :value="1">男</n-radio>
-                  <n-radio :value="2">女</n-radio>
+                  <n-radio :value="1">male</n-radio>
+                  <n-radio :value="2">female</n-radio>
                 </n-space>
               </n-radio-group>
             </n-form-item>
-            <n-form-item label="预约备注" path="remark">
+            <n-form-item label="To make an appointment note" path="remark">
               <n-input
                 v-model:value="formValue.remark"
                 type="textarea"
-                placeholder="请输入预约备注"
+                placeholder="Please enter the booking note"
               />
             </n-form-item>
-            <n-form-item label="图片" path="img">
+            <n-form-item label="The picture" path="img">
               <BasicUpload
                 :action="`${uploadUrl}/v1.0/files`"
                 :headers="uploadHeaders"
@@ -65,7 +65,7 @@
                 :height="100"
                 @uploadChange="uploadChange"
                 v-model:value="uploadList"
-                helpText="单个文件不超过20MB，最多只能上传10个文件"
+                helpText="A single file of no more than 20 MB, most can only upload 10 files"
               />
             </n-form-item>
             <div style="margin-left: 80px">

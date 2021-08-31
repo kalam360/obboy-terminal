@@ -1,8 +1,8 @@
 <template>
   <n-card :bordered="false" class="proCard">
     <BasicTable
-      title="表格列表"
-      titleTooltip="这是一个提示"
+      title="Form list"
+      titleTooltip="This is a hint"
       :columns="columns"
       :request="loadDataTable"
       :row-key="(row) => row.id"
@@ -35,7 +35,7 @@
 
   const actionColumn = reactive({
     width: 150,
-    title: '操作',
+    title: 'operation',
     key: 'action',
     fixed: 'right',
     align: 'center',
@@ -75,18 +75,18 @@
     if (!record.editable) {
       return [
         {
-          label: '编辑',
+          label: 'The editor',
           onClick: handleEdit.bind(null, record),
         },
       ];
     } else {
       return [
         {
-          label: '保存',
+          label: 'save',
           onClick: handleSave.bind(null, record),
         },
         {
-          label: '取消',
+          label: 'cancel',
           onClick: handleCancel.bind(null, record),
         },
       ];

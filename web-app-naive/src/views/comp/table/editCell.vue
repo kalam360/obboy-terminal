@@ -1,8 +1,8 @@
 <template>
   <n-card :bordered="false" class="proCard">
     <BasicTable
-      title="表格列表"
-      titleTooltip="这是一个提示"
+      title="Form list"
+      titleTooltip="This is a hint"
       :columns="columns"
       :request="loadDataTable"
       :row-key="(row) => row.id"
@@ -13,7 +13,7 @@
       :scroll-x="1360"
     >
       <template #toolbar>
-        <n-button type="primary" @click="reloadTable">刷新数据</n-button>
+        <n-button type="primary" @click="reloadTable">The refresh data</n-button>
       </template>
     </BasicTable>
   </n-card>

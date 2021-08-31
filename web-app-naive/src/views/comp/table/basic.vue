@@ -1,8 +1,8 @@
 <template>
   <n-card :bordered="false" class="proCard">
     <BasicTable
-      title="表格列表"
-      titleTooltip="这是一个提示"
+      title="Form list"
+      titleTooltip="This is a hint"
       :columns="columns"
       :request="loadDataTable"
       :row-key="(row) => row.id"
@@ -36,7 +36,7 @@
 
   const actionColumn = reactive({
     width: 150,
-    title: '操作',
+    title: 'operation',
     key: 'action',
     fixed: 'right',
     align: 'center',
@@ -51,7 +51,7 @@
   function createActions(record) {
     return [
       {
-        label: '删除',
+        label: 'delete',
         icon: 'ic:outline-delete-outline',
         onClick: handleDelete.bind(null, record),
         // 根据业务控制是否显示 isShow 和 auth 是并且关系
@@ -62,7 +62,7 @@
         auth: ['basic_list'],
       },
       {
-        label: '编辑',
+        label: 'The editor',
         onClick: handleEdit.bind(null, record),
         ifShow: () => {
           return true;
@@ -87,12 +87,12 @@
   function handleDelete(record) {
     console.log(record);
     dialog.info({
-      title: '提示',
-      content: `您想删除${record.name}`,
-      positiveText: '确定',
-      negativeText: '取消',
+      title: 'prompt',
+      content: `You want to delete${record.name}`,
+      positiveText: 'determine',
+      negativeText: 'cancel',
       onPositiveClick: () => {
-        message.success('删除成功');
+        message.success('Delete the success');
       },
       onNegativeClick: () => {},
     });
@@ -100,7 +100,7 @@
 
   function handleEdit(record) {
     console.log(record);
-    message.success('您点击了编辑按钮');
+    message.success('You click the edit button');
   }
 </script>
 

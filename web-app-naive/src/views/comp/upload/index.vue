@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="n-layout-page-header">
-      <n-card :bordered="false" title="上传图片"> 上传图片，用于向用户收集图片信息 </n-card>
+      <n-card :bordered="false" title="To upload pictures"> Upload pictures, used to collect image information from the user</n-card>
     </div>
     <n-card :bordered="false" class="mt-4 proCard">
       <n-grid cols="2 s:1 m:3 l:3 xl:3 2xl:3" responsive="screen">
@@ -14,14 +14,14 @@
             ref="formRef"
             class="py-8"
           >
-            <n-form-item label="预约姓名" path="name">
-              <n-input v-model:value="formValue.name" placeholder="输入姓名" />
+            <n-form-item label="Reservation name" path="name">
+              <n-input v-model:value="formValue.name" placeholder="Enter the name" />
             </n-form-item>
-            <n-form-item label="预约号码" path="mobile">
-              <n-input placeholder="电话号码" v-model:value="formValue.mobile" />
+            <n-form-item label="The reservation number" path="mobile">
+              <n-input placeholder="The phone number" v-model:value="formValue.mobile" />
             </n-form-item>
 
-            <n-form-item label="病例图片" path="images">
+            <n-form-item label="Cases of pictures" path="images">
               <BasicUpload
                 :action="`${uploadUrl}/v1.0/files`"
                 :headers="uploadHeaders"
@@ -31,7 +31,7 @@
                 :height="100"
                 @uploadChange="uploadChange"
                 v-model:value="formValue.images"
-                helpText="单个文件不超过2MB，最多只能上传10个文件"
+                helpText="A single file of no more than 2 MB, most can only upload 10 files"
               />
             </n-form-item>
             <div style="margin-left: 80px">
@@ -58,18 +58,18 @@
   const rules = {
     name: {
       required: true,
-      message: '请输入预约姓名',
+      message: 'Please enter the reservation name',
       trigger: 'blur',
     },
     remark: {
       required: true,
-      message: '请输入预约备注',
+      message: 'Please enter the booking note',
       trigger: 'blur',
     },
     images: {
       required: true,
       type: 'array',
-      message: '请上传病例图片',
+      message: 'Case please upload pictures',
       trigger: 'change',
     },
   };
@@ -81,7 +81,7 @@
   const formValue = reactive({
     name: '',
     mobile: '',
-    //图片列表 通常查看和编辑使用 绝对路径 | 相对路径都可以
+    //The absolute path to the image list is usually used to view and edit | relative path
     images: ['https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'],
   });
 
@@ -94,9 +94,9 @@
   function formSubmit() {
     formRef.value.validate((errors) => {
       if (!errors) {
-        message.success('验证成功');
+        message.success('Authentication is successful');
       } else {
-        message.error('验证失败，请填写完整信息');
+        message.error('Authentication failed, please fill in complete information');
       }
     });
   }

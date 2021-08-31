@@ -8,21 +8,21 @@ export const columns = [
     width: 100,
   },
   {
-    title: '编码',
+    title: 'coding',
     key: 'no',
     width: 100,
   },
   {
-    title: '名称',
+    title: 'The name of the',
     key: 'name',
     editComponent: 'NInput',
-    // 默认必填校验
+    // The default will fill in check
     editRule: true,
     edit: true,
     width: 200,
   },
   {
-    title: '头像',
+    title: 'Head portrait',
     key: 'avatar',
     width: 100,
     render(row) {
@@ -33,17 +33,17 @@ export const columns = [
     },
   },
   {
-    title: '地址',
+    title: 'address',
     key: 'address',
     editComponent: 'NSelect',
     editComponentProps: {
       options: [
         {
-          label: '广东省',
+          label: 'Guangdong province,',
           value: 1,
         },
         {
-          label: '浙江省',
+          label: 'Zhejiang province',
           value: 2,
         },
       ],
@@ -53,7 +53,7 @@ export const columns = [
     ellipsis: false,
   },
   {
-    title: '开始日期',
+    title: 'Start date',
     key: 'beginTime',
     edit: true,
     width: 160,
@@ -65,17 +65,17 @@ export const columns = [
     ellipsis: false,
   },
   {
-    title: '结束日期',
+    title: 'End date',
     key: 'endTime',
     width: 160,
   },
   {
-    title: '创建时间',
+    title: 'Creation time',
     key: 'date',
     width: 160,
   },
   {
-    title: '停留时间',
+    title: 'Residence time',
     key: 'time',
     width: 80,
   },
