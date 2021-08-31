@@ -57,15 +57,15 @@
   const timekeeping = () => {
     clearInterval(timer);
     if (route.name == 'login' || isLock.value) return;
-    // 设置不锁屏
+    // Set the lock screen
     useLockscreen.setLock(false);
-    // 重置锁屏时间
+    // Reset the lock screen time
     useLockscreen.setLockTime();
     timer = setInterval(() => {
-      // 锁屏倒计时递减
+      //Lock screen countdown
       useLockscreen.setLockTime(lockTime.value - 1);
       if (lockTime.value <= 0) {
-        // 设置锁屏
+        //Set the lock screen
         useLockscreen.setLock(true);
         return clearInterval(timer);
       }
