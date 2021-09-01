@@ -1,5 +1,5 @@
 /**
- * 注册全局方法 待完善
+ * Register global method to be improved
  * @param app
  */
 export function setupGlobalMethods() {}

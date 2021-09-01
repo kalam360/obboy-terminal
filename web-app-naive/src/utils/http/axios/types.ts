@@ -8,33 +8,33 @@ export interface CreateAxiosOptions extends AxiosRequestConfig {
 }
 
 export interface RequestOptions {
-  // 请求参数拼接到url
+  // Request parameters spliced ​​to the URL
   joinParamsToUrl?: boolean;
-  // 格式化请求参数时间
+  // Format request parameter time
   formatDate?: boolean;
-  // 是否显示提示信息
+  // Whether to show prompt information
   isShowMessage?: boolean;
-  // 是否解析成JSON
+  // Whether parsing into JSON
   isParseToJson?: boolean;
-  // 成功的文本信息
+  // Successful text information
   successMessageText?: string;
-  // 是否显示成功信息
+  // Whether to display successful information
   isShowSuccessMessage?: boolean;
-  // 是否显示失败信息
+  // Whether to display failed information
   isShowErrorMessage?: boolean;
-  // 错误的文本信息
+  // Wrong text information
   errorMessageText?: string;
-  // 是否加入url
+  // Whether to join the URL
   joinPrefix?: boolean;
-  // 接口地址， 不填则使用默认apiUrl
+  //Interface address, use default APIURL without filling
   apiUrl?: string;
-  // 错误消息提示类型
+  // Error message prompt type
   errorMessageMode?: 'none' | 'modal';
-  // 是否添加时间戳
+  //Do you add a timestamp?
   joinTime?: boolean;
-  // 不进行任何处理，直接返回
+  // Do not handle any processing, return directly
   isTransformResponse?: boolean;
-  // 是否返回原生响应头
+  // Whether to return to the native response header
   isReturnNativeResponse?: boolean;
 }
 

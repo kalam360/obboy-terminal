@@ -73,7 +73,7 @@ export function useColumns(propsRef: ComputedRef<BasicTableProps>) {
                     }
                   ),
                 ]),
-                '该列可编辑'
+                'This column edits'
               );
             };
           }
@@ -128,7 +128,7 @@ export function useColumns(propsRef: ComputedRef<BasicTableProps>) {
     }
   }
 
-  //获取
+  //Obtain
   function getColumns(): BasicColumn[] {
     const columns = toRaw(unref(getColumnsRef));
     return columns.map((item) => {
@@ -136,12 +136,12 @@ export function useColumns(propsRef: ComputedRef<BasicTableProps>) {
     });
   }
 
-  //获取原始
+  //Get the original
   function getCacheColumns(isKey?: boolean): any[] {
     return isKey ? cacheColumns.map((item) => item.key) : cacheColumns;
   }
 
-  //更新原始数据单个字段
+  //Update raw data single field
   function setCacheColumnsField(key: string | undefined, value: Partial<BasicColumn>) {
     if (!key || !value) {
       return;

@@ -10,9 +10,9 @@ export interface ActionItem extends NButton.props {
   popConfirm?: PopConfirm;
   disabled?: boolean;
   divider?: boolean;
-  // 权限编码控制是否显示
+  // Permission coding control is displayed
   auth?: PermissionsEnum | PermissionsEnum[] | string | string[];
-  // 业务控制是否显示
+  // Whether business control is displayed
   ifShow?: boolean | ((action: ActionItem) => boolean);
 }
 

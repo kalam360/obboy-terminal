@@ -5,7 +5,7 @@ import { PageEnum } from '@/enums/pageEnum';
 import { isObject } from './is/index';
 import { cloneDeep } from 'lodash-es';
 /**
- * render 图标
+ * render icon
  * */
 export function renderIcon(icon) {
   return () => h(NIcon, null, { default: () => h(icon) });
@@ -30,7 +30,7 @@ export function renderNew(type = 'warning', text = 'New', color: object = newTag
 }
 
 /**
- * 递归组装菜单格式
+ * Recursive assembly menu format
  */
 export function generatorMenu(routerMap: Array<any>) {
   return filterRouter(routerMap).map((item) => {
@@ -43,7 +43,7 @@ export function generatorMenu(routerMap: Array<any>) {
       key: info.name,
       icon: isRoot ? item.meta?.icon : info.meta?.icon,
     };
-    // 是否有子菜单，并递归处理
+    // Is there a submenu, and recursively
     if (info.children && info.children.length > 0) {
       // Recursion
       currentMenu.children = generatorMenu(info.children);
@@ -53,7 +53,7 @@ export function generatorMenu(routerMap: Array<any>) {
 }
 
 /**
- * 混合菜单
+ * Mixed menu
  * */
 export function generatorMenuMix(routerMap: Array<any>, routerName: string, location: string) {
   const cloneRouterMap = cloneDeep(routerMap);
@@ -79,7 +79,7 @@ export function generatorMenuMix(routerMap: Array<any>, routerName: string, loca
 }
 
 /**
- * 递归组装子菜单
+ * Recrete group menu
  * */
 export function getChildrenRouter(routerMap: Array<any>) {
   return filterRouter(routerMap).map((item) => {
@@ -91,7 +91,7 @@ export function getChildrenRouter(routerMap: Array<any>) {
       label: info.meta?.title,
       key: info.name,
     };
-    // 是否有子菜单，并递归处理
+    // Is there a submenu, and recursively
     if (info.children && info.children.length > 0) {
       // Recursion
       currentMenu.children = getChildrenRouter(info.children);
@@ -101,14 +101,14 @@ export function getChildrenRouter(routerMap: Array<any>) {
 }
 
 /**
- * 判断根路由 Router
+ * Judgment root route Router
  * */
 export function isRootRouter(item) {
   return item.meta?.alwaysShow != true && item.children?.length === 1;
 }
 
 /**
- * 排除Router
+ * Router
  * */
 export function filterRouter(routerMap: Array<any>) {
   return routerMap.filter((item) => {
@@ -131,7 +131,7 @@ export const withInstall = <T>(component: T, alias?: string) => {
 };
 
 /**
- *  找到对应的节点
+ *  Find the corresponding node
  * */
 let result = null;
 export function getTreeItem(data: any[], key?: string | number): any {
@@ -148,7 +148,7 @@ export function getTreeItem(data: any[], key?: string | number): any {
 }
 
 /**
- *  找到所有节点
+ *  Find all nodes
  * */
 const treeAll: any[] = [];
 export function getTreeAll(data: any[]): any[] {

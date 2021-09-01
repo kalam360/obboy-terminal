@@ -1,7 +1,7 @@
 import type { TableBaseColumn } from 'naive-ui/lib/data-table/src/interface';
 import { ComponentType } from './componentType';
 export interface BasicColumn extends TableBaseColumn {
-  //编辑表格
+  //Edit form
   edit?: boolean;
   editRow?: boolean;
   editable?: boolean;
@@ -10,9 +10,9 @@ export interface BasicColumn extends TableBaseColumn {
   editRule?: boolean | ((text: string, record: Recordable) => Promise<string>);
   editValueMap?: (value: any) => string;
   onEditRow?: () => void;
-  // 权限编码控制是否显示
+  // Permission coding control is displayed
   auth?: string[];
-  // 业务控制是否显示
+  // Whether business control is displayed
   ifShow?: boolean | ((column: BasicColumn) => boolean);
 }
 

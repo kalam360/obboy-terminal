@@ -46,7 +46,7 @@
             <MainView />
           </div>
         </div>
-        <!--1.15废弃，没啥用，占用操作空间-->
+        <!--1.15 abandonment, no use, occupying the operating space-->
         <!--        <NLayoutFooter v-if="getShowFooter">-->
         <!--          <PageFooter />-->
         <!--        </NLayoutFooter>-->
@@ -147,7 +147,7 @@
 
   onMounted(() => {
     window.addEventListener('resize', watchWidth);
-    //挂载在 window 方便与在js中使用
+    //Mounting in WINDOW is convenient to use in JS
     window['$loading'] = useLoadingBar();
     window['$loading'].finish();
   });

@@ -1,6 +1,6 @@
 import type { DialogOptions } from 'naive-ui/lib/dialog';
 /**
- * @description: 弹窗对外暴露的方法
+ * @description: Method for exposing the window
  */
 export interface ModalMethods {
   setProps: (props) => void;
@@ -10,7 +10,7 @@ export interface ModalMethods {
 }
 
 /**
- * 支持修改，DialogOptions 參數
+ * Support for modification, Dialogoptions parameter
  */
 export interface ModalProps extends DialogOptions { }
 

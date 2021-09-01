@@ -2,7 +2,7 @@
   <div class="w-full">
     <div class="upload">
       <div class="upload-card">
-        <!--图片列表-->
+        <!--Picture list-->
         <div
           class="upload-card-item"
           :style="getCSSProperties"
@@ -24,7 +24,7 @@
           </div>
         </div>
 
-        <!--上传图片-->
+        <!--upload image-->
         <div
           class="upload-card-item upload-card-item-select-picture"
           :style="getCSSProperties"
@@ -40,26 +40,26 @@
               <n-icon size="18" class="m-auto">
                 <PlusOutlined />
               </n-icon>
-              <span class="upload-title">上传图片</span>
+              <span class="upload-title">upload image</span>
             </div>
           </n-upload>
         </div>
       </div>
     </div>
 
-    <!--上传图片-->
+    <!--upload image-->
     <n-space>
-      <n-alert title="提示" type="info" v-if="helpText" class="flex w-full">
+      <n-alert title="hint" type="info" v-if="helpText" class="flex w-full">
         {{ helpText }}
       </n-alert>
     </n-space>
   </div>
 
-  <!--预览图片-->
+  <!--preview picture-->
   <n-modal
     v-model:show="showModal"
     preset="card"
-    title="预览"
+    title="Preview"
     :bordered="false"
     :style="{ width: '520px' }"
   >
@@ -105,26 +105,26 @@
         imgList: [] as string[],
       });
 
-      //赋值默认图片显示
+      //Assignment default picture display
       if (props.value.length) {
         state.imgList = props.value.map((item) => {
           return getImgUrl(item);
         });
       }
 
-      //预览
+      //Preview
       function preview(url: string) {
         state.showModal = true;
         state.previewUrl = url;
       }
 
-      //删除
+      //delete
       function remove(index: number) {
         dialog.info({
-          title: '提示',
-          content: '你确定要删除吗？',
-          positiveText: '确定',
-          negativeText: '取消',
+          title: 'hint',
+          content: 'Are you sure you want to delete?',
+          positiveText: 'Sure',
+          negativeText: 'Cancel',
           onPositiveClick: () => {
             state.imgList.splice(index, 1);
             state.originalImgList.splice(index, 1);
@@ -135,7 +135,7 @@
         });
       }
 
-      //组装完整图片地址
+      //Assemble full picture address
       function getImgUrl(url: string): string {
         const { imgUrl } = globSetting;
         return /(^http|https:\/\/)/g.test(url) ? url : `${imgUrl}${url}`;
@@ -145,36 +145,36 @@
         return componentSetting.upload.fileType.includes(fileType);
       }
 
-      //上传之前
+      //Previously uploaded
       function beforeUpload({ file }) {
         const fileInfo = file.file;
         const { maxSize, accept } = props;
         const acceptRef = (isString(accept) && accept.split(',')) || [];
 
-        // 设置最大值，则判断
+        // Set the maximum value, then judge
         if (maxSize && fileInfo.size / 1024 / 1024 >= maxSize) {
-          message.error(`上传文件最大值不能超过${maxSize}M`);
+          message.error(`The maximum value of the upload file cannot exceed${maxSize}M`);
           return false;
         }
 
-        // 设置类型,则判断
+        // 设置Set typeudge
         const fileType = componentSetting.upload.fileType;
         if (acceptRef.length > 0 && !checkFileType(fileInfo.type)) {
-          message.error(`只能上传文件类型为${fileType.join(',')}`);
+          message.error(`Only upload file types${fileType.join(',')}`);
           return false;
         }
 
         return true;
       }
 
-      //上传结束
+      //Upload end
       function finish({ event: Event }) {
         const res = eval('(' + Event.target.response + ')');
         const infoField = componentSetting.upload.apiSetting.infoField;
         const { code } = res;
-        const message = res.msg || res.message || '上传失败';
+        const message = res.msg || res.message || 'upload failed';
         const result = res[infoField];
-        //成功
+        //success
         if (code === ResultEnum.SUCCESS) {
           let imgUrl: string = getImgUrl(result.photo);
           state.imgList.push(imgUrl);

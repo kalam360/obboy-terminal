@@ -1,5 +1,5 @@
 /**
- * 全局注册自定义组件 待完善
+ * Global registration custom components to be improved
  * @param app
  */
 export function setupCustomComponents() {

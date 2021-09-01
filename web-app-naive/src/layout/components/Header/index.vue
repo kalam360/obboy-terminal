@@ -1,6 +1,6 @@
 <template>
   <div class="layout-header">
-    <!--顶部菜单-->
+    <!--Top menu-->
     <div
       class="layout-header-left"
       v-if="navMode === 'horizontal' || (navMode === 'horizontal-mix' && mixMenu)"
@@ -16,9 +16,9 @@
         mode="horizontal"
       />
     </div>
-    <!--左侧菜单-->
+    <!--Left menu-->
     <div class="layout-header-left" v-else>
-      <!-- 菜单收起 -->
+      <!-- Menu collapsed -->
       <div
         class="ml-1 layout-header-trigger layout-header-trigger-min"
         @click="() => $emit('update:collapsed', !collapsed)"
@@ -30,7 +30,7 @@
           <MenuFoldOutlined />
         </n-icon>
       </div>
-      <!-- 刷新 -->
+      <!-- Refresh -->
       <div
         class="mr-1 layout-header-trigger layout-header-trigger-min"
         v-if="headerSetting.isReload"
@@ -40,7 +40,7 @@
           <ReloadOutlined />
         </n-icon>
       </div>
-      <!-- 面包屑 -->
+      <!-- Bread crumbs -->
       <n-breadcrumb v-if="crumbsSetting.show">
         <template v-for="routeItem in breadcrumbList" :key="routeItem.name">
           <n-breadcrumb-item>
@@ -83,7 +83,7 @@
           <span>{{ item.tips }}</span>
         </n-tooltip>
       </div>
-      <!--切换全屏-->
+      <!--Switch full screen-->
       <div class="layout-header-trigger layout-header-trigger-min">
         <n-tooltip placement="bottom">
           <template #trigger>
@@ -91,10 +91,10 @@
               <component :is="fullscreenIcon" @click="toggleFullScreen" />
             </n-icon>
           </template>
-          <span>全屏</span>
+          <span>full screen</span>
         </n-tooltip>
       </div>
-      <!-- 个人中心 -->
+      <!-- Personal center -->
       <div class="layout-header-trigger layout-header-trigger-min">
         <n-dropdown trigger="hover" @select="avatarSelect" :options="avatarOptions">
           <div class="avatar">
@@ -107,7 +107,7 @@
           </div>
         </n-dropdown>
       </div>
-      <!--设置-->
+      <!--set up-->
       <div class="layout-header-trigger layout-header-trigger-min" @click="openSetting">
         <n-tooltip placement="bottom-end">
           <template #trigger>
@@ -115,12 +115,12 @@
               <SettingOutlined />
             </n-icon>
           </template>
-          <span>项目配置</span>
+          <span>Project configuration</span>
         </n-tooltip>
       </div>
     </div>
   </div>
-  <!--项目配置-->
+  <!--Project configuration-->
   <ProjectSetting ref="drawerSetting" />
 </template>
 
@@ -201,7 +201,7 @@
             key: item.name,
             disabled: item.path === '/',
           };
-          // 是否有子菜单，并递归处理
+          // Is there a submenu, and recursively
           if (item.children && item.children.length > 0) {
             // Recursion
             currentMenu.children = generator(item.children, currentMenu);
@@ -218,24 +218,24 @@
         router.push({ name: key });
       };
 
-      // 刷新页面
+      // refresh page
       const reloadPage = () => {
         router.push({
           path: '/redirect' + unref(route).fullPath,
         });
       };
 
-      // 退出登录
+      // sign out
       const doLogout = () => {
         dialog.info({
-          title: '提示',
-          content: '您确定要退出登录吗',
-          positiveText: '确定',
-          negativeText: '取消',
+          title: 'hint',
+          content: 'Do you sure you want to quit login?',
+          positiveText: 'Sure',
+          negativeText: 'Cancel',
           onPositiveClick: () => {
             userStore.logout().then(() => {
-              message.success('成功退出登录');
-              // 移除标签页
+              message.success('Successfully quit login');
+              // Remove tab
               localStorage.removeItem(TABS_ROUTES);
               router
                 .replace({
@@ -251,15 +251,15 @@
         });
       };
 
-      // 切换全屏图标
+      // Switch full screen icon
       const toggleFullscreenIcon = () =>
         (state.fullscreenIcon =
           document.fullscreenElement !== null ? 'FullscreenExitOutlined' : 'FullscreenOutlined');
 
-      // 监听全屏切换事件
+      // Monitor full screen switching event
       document.addEventListener('fullscreenchange', toggleFullscreenIcon);
 
-      // 全屏切换
+      // Full screen switching
       const toggleFullScreen = () => {
         if (!document.fullscreenElement) {
           document.documentElement.requestFullscreen();
@@ -270,11 +270,11 @@
         }
       };
 
-      // 图标列表
+      // Icon list
       const iconList = [
         {
           icon: 'SearchOutlined',
-          tips: '搜索',
+          tips: 'search',
         },
         {
           icon: 'GithubOutlined',
@@ -285,7 +285,7 @@
         },
         {
           icon: 'LockOutlined',
-          tips: '锁屏',
+          tips: 'Lock screen',
           eventObject: {
             click: () => useLockscreen.setLock(true),
           },
@@ -293,16 +293,16 @@
       ];
       const avatarOptions = [
         {
-          label: '个人设置',
+          label: 'Personal settings',
           key: 1,
         },
         {
-          label: '退出登录',
+          label: 'sign out',
           key: 2,
         },
       ];
 
-      //头像下拉菜单
+      //Avatar drop-down menu
       const avatarSelect = (key) => {
         switch (key) {
           case 1:

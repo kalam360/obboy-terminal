@@ -13,7 +13,7 @@ export interface BasicPageParams {
 }
 
 /**
- * @description: 获取用户信息
+ * @description: Get user information
  */
 export function getUserInfo() {
   return http.request({
@@ -23,7 +23,7 @@ export function getUserInfo() {
 }
 
 /**
- * @description: 用户登录
+ * @description: User login
  */
 export function login(params) {
   return http.request<BasicResponseModel>(
@@ -39,7 +39,7 @@ export function login(params) {
 }
 
 /**
- * @description: 用户修改密码
+ * @description: User change password
  */
 export function changePassword(params, uid) {
   return http.request(
@@ -55,7 +55,7 @@ export function changePassword(params, uid) {
 }
 
 /**
- * @description: 用户登出
+ * @description: User logs out
  */
 export function logout(params) {
   return http.request({

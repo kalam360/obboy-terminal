@@ -1,17 +1,17 @@
 /**
- * 根据文件url获取文件名
- * @param url 文件url
+ * Get the file name according to the file URL
+ * @param url File URL
  */
 function getFileName(url) {
   const num = url.lastIndexOf('/') + 1;
   let fileName = url.substring(num);
-  //把参数和文件名分割开
+  //Split parameters and file names
   fileName = decodeURI(fileName.split('?')[0]);
   return fileName;
 }
 
 /**
- * 根据文件地址下载文件
+ * Download file according to file address
  * @param {*} sUrl
  */
 export function downloadByUrl({
@@ -23,7 +23,7 @@ export function downloadByUrl({
   target?: '_self' | '_blank';
   fileName?: string;
 }): Promise<boolean> {
-  // 是否同源
+  // Is it homologous?
   const isSameHost = new URL(url).host == location.host;
   return new Promise<boolean>((resolve, reject) => {
     if (isSameHost) {
@@ -59,7 +59,7 @@ export function downloadByUrl({
         const context = canvas.getContext('2d')!;
         context.drawImage(img, 0, 0, img.width, img.height);
         // window.navigator.msSaveBlob(canvas.msToBlob(),'image.jpg');
-        // saveAs(imageDataUrl, '附件');
+        // saveAs(imageDataUrl, 'Appendix');
         canvas.toBlob((blob) => {
           const link = document.createElement('a');
           link.href = window.URL.createObjectURL(blob);

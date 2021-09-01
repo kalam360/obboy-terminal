@@ -2,7 +2,7 @@
   <n-drawer v-model:show="isDrawer" :width="width" :placement="placement" :native-scrollbar="false">
     <n-drawer-content :title="title">
       <div class="drawer">
-        <n-divider title-placement="center">主题</n-divider>
+        <n-divider title-placement="center">theme</n-divider>
 
         <div class="drawer-setting-item justify-center dark-switch">
           <n-tooltip placement="bottom">
@@ -20,11 +20,11 @@
                 </template>
               </n-switch>
             </template>
-            <span>深色主题</span>
+            <span>Brunette theme</span>
           </n-tooltip>
         </div>
 
-        <n-divider title-placement="center">系统主题</n-divider>
+        <n-divider title-placement="center">System theme</n-divider>
 
         <div class="drawer-setting-item align-items-top">
           <span
@@ -40,7 +40,7 @@
           </span>
         </div>
 
-        <n-divider title-placement="center">导航栏模式</n-divider>
+        <n-divider title-placement="center">Navigation bar mode</n-divider>
 
         <div class="drawer-setting-item align-items-top">
           <div class="drawer-setting-item-style align-items-top">
@@ -49,10 +49,10 @@
                 <img
                   src="~@/assets/images/nav-theme-dark.svg"
                   @click="togNavMode('vertical')"
-                  alt="左侧菜单模式"
+                  alt="Left menu mode"
                 />
               </template>
-              <span>左侧菜单模式</span>
+              <span>Left menu mode</span>
             </n-tooltip>
             <n-badge dot color="#19be6b" v-show="settingStore.navMode === 'vertical'" />
           </div>
@@ -62,11 +62,11 @@
               <template #trigger>
                 <img
                   src="~@/assets/images/nav-horizontal.svg"
-                  alt="顶部菜单模式"
+                  alt="Top menu mode"
                   @click="togNavMode('horizontal')"
                 />
               </template>
-              <span>顶部菜单模式</span>
+              <span>Top menu mode</span>
             </n-tooltip>
             <n-badge dot color="#19be6b" v-show="settingStore.navMode === 'horizontal'" />
           </div>
@@ -77,16 +77,16 @@
                 <img
                   src="~@/assets/images/nav-horizontal-mix.svg"
                   @click="togNavMode('horizontal-mix')"
-                  alt="顶部菜单混合模式"
+                  alt="Top menu mixing mode"
                 />
               </template>
-              <span>顶部菜单混合模式</span>
+              <span>Top menu mixing mode</span>
             </n-tooltip>
             <n-badge dot color="#19be6b" v-show="settingStore.navMode === 'horizontal-mix'" />
           </div>
         </div>
 
-        <n-divider title-placement="center">导航栏风格</n-divider>
+        <n-divider title-placement="center">Navigation bar style</n-divider>
 
         <div class="drawer-setting-item align-items-top">
           <div class="drawer-setting-item-style align-items-top">
@@ -94,11 +94,11 @@
               <template #trigger>
                 <img
                   src="~@/assets/images/nav-theme-dark.svg"
-                  alt="暗色侧边栏"
+                  alt="Dark sidebar"
                   @click="togNavTheme('dark')"
                 />
               </template>
-              <span>暗色侧边栏</span>
+              <span>Dark sidebar</span>
             </n-tooltip>
             <n-badge dot color="#19be6b" v-if="settingStore.navTheme === 'dark'" />
           </div>
@@ -108,11 +108,11 @@
               <template #trigger>
                 <img
                   src="~@/assets/images/nav-theme-light.svg"
-                  alt="白色侧边栏"
+                  alt="White sidebar"
                   @click="togNavTheme('light')"
                 />
               </template>
-              <span>白色侧边栏</span>
+              <span>White sidebar</span>
             </n-tooltip>
             <n-badge dot color="#19be6b" v-if="settingStore.navTheme === 'light'" />
           </div>
@@ -125,19 +125,19 @@
                 <img
                   src="~@/assets/images/header-theme-dark.svg"
                   @click="togNavTheme('header-dark')"
-                  alt="暗色顶栏"
+                  alt="Dark column"
                 />
               </template>
-              <span>暗色顶栏</span>
+              <span>Dark column</span>
             </n-tooltip>
             <n-badge dot color="#19be6b" v-if="settingStore.navTheme === 'header-dark'" />
           </div>
         </div>
 
-        <n-divider title-placement="center">界面功能</n-divider>
+        <n-divider title-placement="center">Interface function</n-divider>
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 分割菜单 </div>
+          <div class="drawer-setting-item-title"> Segmentation menu </div>
           <div class="drawer-setting-item-action">
             <n-switch
               :disabled="settingStore.navMode !== 'horizontal-mix'"
@@ -147,7 +147,7 @@
         </div>
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 固定顶栏 </div>
+          <div class="drawer-setting-item-title"> Fixed top bar </div>
           <div class="drawer-setting-item-action">
             <n-switch v-model:value="settingStore.headerSetting.fixed" />
           </div>
@@ -155,7 +155,7 @@
 
         <!--        <div class="drawer-setting-item">-->
         <!--          <div class="drawer-setting-item-title">-->
-        <!--            固定侧边栏-->
+        <!--            Fixed side bar-->
         <!--          </div>-->
         <!--          <div class="drawer-setting-item-action">-->
         <!--            <n-switch v-model:value="settingStore.menuSetting.fixed" />-->
@@ -163,60 +163,60 @@
         <!--        </div>-->
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 固定多页签 </div>
+          <div class="drawer-setting-item-title"> Fixed multi-page sign </div>
           <div class="drawer-setting-item-action">
             <n-switch v-model:value="settingStore.multiTabsSetting.fixed" />
           </div>
         </div>
 
-        <n-divider title-placement="center">界面显示</n-divider>
+        <n-divider title-placement="center">Interface display</n-divider>
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 显示重载页面按钮 </div>
+          <div class="drawer-setting-item-title"> Show overload page button </div>
           <div class="drawer-setting-item-action">
             <n-switch v-model:value="settingStore.headerSetting.isReload" />
           </div>
         </div>
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 显示面包屑导航 </div>
+          <div class="drawer-setting-item-title"> Show crumbs navigation </div>
           <div class="drawer-setting-item-action">
             <n-switch v-model:value="settingStore.crumbsSetting.show" />
           </div>
         </div>
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 显示面包屑显示图标 </div>
+          <div class="drawer-setting-item-title"> Show crumbs display icon </div>
           <div class="drawer-setting-item-action">
             <n-switch v-model:value="settingStore.crumbsSetting.showIcon" />
           </div>
         </div>
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 显示多页签 </div>
+          <div class="drawer-setting-item-title"> Multi-page sign </div>
           <div class="drawer-setting-item-action">
             <n-switch v-model:value="settingStore.multiTabsSetting.show" />
           </div>
         </div>
-        <!--1.15废弃，没啥用，占用操作空间-->
+        <!--1.15Abandon, no use, occupying the operating space-->
         <!--        <div class="drawer-setting-item">-->
-        <!--          <div class="drawer-setting-item-title"> 显示页脚 </div>-->
+        <!--          <div class="drawer-setting-item-title"> Display footer </div>-->
         <!--          <div class="drawer-setting-item-action">-->
         <!--            <n-switch v-model:value="settingStore.showFooter" />-->
         <!--          </div>-->
         <!--        </div>-->
 
-        <n-divider title-placement="center">动画</n-divider>
+        <n-divider title-placement="center">Animation</n-divider>
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 禁用动画 </div>
+          <div class="drawer-setting-item-title"> Disable animation </div>
           <div class="drawer-setting-item-action">
             <n-switch v-model:value="settingStore.isPageAnimate" />
           </div>
         </div>
 
         <div class="drawer-setting-item">
-          <div class="drawer-setting-item-title"> 动画类型 </div>
+          <div class="drawer-setting-item-title"> Animation type </div>
           <div class="drawer-setting-item-select">
             <n-select v-model:value="settingStore.pageAnimateType" :options="animateOptions" />
           </div>
@@ -247,7 +247,7 @@
     props: {
       title: {
         type: String,
-        default: '项目配置',
+        default: 'Project configuration',
       },
       width: {
         type: Number,
@@ -263,7 +263,7 @@
         isDrawer: false,
         placement: 'right',
         alertText:
-          '该功能主要实时预览各种布局效果，更多完整配置在 projectSetting.ts 中设置，建议在生产环境关闭该布局预览功能。',
+          'This feature previews a variety of layout effects in real time, more complete configurations in ProjectSetting.ts, it is recommended to turn off the layout preview function in the production environment.',
         appThemeList: designStore.appThemeList,
       });
 

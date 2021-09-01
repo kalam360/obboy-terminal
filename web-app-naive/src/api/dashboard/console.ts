@@ -1,6 +1,6 @@
 import http from '@/utils/http/axios';
 
-//获取主控台信息
+//Get the main console information
 export function getConsoleInfo() {
   return http.request({
     url: '/dashboard/console',

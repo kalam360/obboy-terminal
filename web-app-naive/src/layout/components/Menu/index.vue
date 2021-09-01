@@ -27,15 +27,15 @@
     components: {},
     props: {
       mode: {
-        // 菜单模式
+        // Menu mode
         type: String,
         default: 'vertical',
       },
       collapsed: {
-        // 侧边栏菜单是否收起
+        // Side bar menu is collected
         type: Boolean,
       },
-      //位置
+      //Location
       location: {
         type: String,
         default: 'left',
@@ -43,7 +43,7 @@
     },
     emits: ['update:collapsed'],
     setup(props, { emit }) {
-      // 当前路由
+      // Current routing
       const currentRoute = useRoute();
       const router = useRouter();
       const asyncRouteStore = useAsyncRouteStore();
@@ -56,7 +56,7 @@
 
       const navMode = getNavMode;
 
-      // 获取当前打开的子菜单
+      // Get the currently open submenu
       const matched = currentRoute.matched;
 
       const getOpenKeys = matched && matched.length ? matched.map((item) => item.name) : [];
@@ -76,7 +76,7 @@
           : unref(headerMenuSelectKey);
       });
 
-      // 监听分割菜单
+      // Listening split menu
       watch(
         () => settingStore.menuSetting.mixMenu,
         () => {
@@ -87,7 +87,7 @@
         }
       );
 
-      // 监听菜单收缩状态
+      // Monitor menu shrink state
       watch(
         () => props.collapsed,
         (newVal) => {
@@ -96,7 +96,7 @@
         }
       );
 
-      // 跟随页面路由变化，切换菜单选中状态
+      // Follow the page route change, switch menu selection status
       watch(
         () => currentRoute.fullPath,
         () => {
@@ -112,7 +112,7 @@
         if (!settingStore.menuSetting.mixMenu) {
           menus.value = generatorMenu(asyncRouteStore.getMenus);
         } else {
-          //混合菜单
+          //Mixed menu
           const firstRouteName: string = (currentRoute.matched[0].name as string) || '';
           menus.value = generatorMenuMix(asyncRouteStore.getMenus, firstRouteName, props.location);
           const activeMenu: string = currentRoute?.matched[0].meta?.activeMenu as string;
@@ -120,7 +120,7 @@
         }
       }
 
-      // 点击菜单
+      // Click on the menu
       function clickMenuItem(key: string) {
         if (/http(s)?:/.test(key)) {
           window.open(key);
@@ -129,7 +129,7 @@
         }
       }
 
-      //展开菜单
+      //Expand menu
       function menuExpanded(openKeys: string[]) {
         if (!openKeys) return;
         const latestOpenKey = openKeys.find((key) => state.openKeys.indexOf(key) === -1);
@@ -137,7 +137,7 @@
         state.openKeys = isExistChildren ? (latestOpenKey ? [latestOpenKey] : []) : openKeys;
       }
 
-      //查找是否存在子路由
+      //Find if there is a sub-route
       function findChildrenLen(key: string) {
         if (!key) return false;
         const subRouteChildren: string[] = [];

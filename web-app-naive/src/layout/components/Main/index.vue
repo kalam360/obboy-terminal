@@ -32,7 +32,7 @@
     setup() {
       const { getIsPageAnimate, getPageAnimateType } = useProjectSetting();
       const asyncRouteStore = useAsyncRouteStore();
-      // 需要缓存的路由组件
+      // Routing components that need cache
       const keepAliveComponents = computed(() => asyncRouteStore.keepAliveComponents);
 
       const getTransitionName = computed(() => {

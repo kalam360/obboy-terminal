@@ -47,8 +47,8 @@ export function pagination<T = any>(pageNo: number, pageSize: number, array: T[]
 }
 
 /**
- * @param {Number} times 回调函数需要执行的次数
- * @param {Function} callback 回调函数
+ * @param {Number} times The number of callback functions need to be executed
+ * @param {Function} callback Callback
  */
 export function doCustomTimes(times: number, callback: any) {
   let i = -1;
@@ -65,7 +65,7 @@ export interface requestParams {
 }
 
 /**
- * @description 本函数用于从request数据中获取token，请根据项目的实际情况修改
+ * @description This function is used to get token from the request data, please modify according to the actual situation of the project
  *
  */
 export function getRequestToken({ headers }: requestParams): string | undefined {

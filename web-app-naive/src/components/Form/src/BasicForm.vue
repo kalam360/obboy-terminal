@@ -3,7 +3,7 @@
     <n-grid v-bind="getGrid">
       <n-gi v-bind="schema.giProps" v-for="schema in getSchema" :key="schema.field">
         <n-form-item :label="schema.label" :path="schema.field">
-          <!--标签名右侧温馨提示-->
+          <!--Tips on the right side of the label name-->
           <template #label v-if="schema.labelMessage">
             {{ schema.label }}
             <n-tooltip trigger="hover" :style="schema.labelMessageStyle">
@@ -16,7 +16,7 @@
             </n-tooltip>
           </template>
 
-          <!--判断插槽-->
+          <!--Judgment slot-->
           <template v-if="schema.slot">
             <slot
               :name="schema.slot"
@@ -54,7 +54,7 @@
               </n-space>
             </n-radio-group>
           </template>
-          <!--动态渲染表单组件-->
+          <!--Dynamic rendering form assembly-->
           <component
             v-else
             v-bind="getComponentProps(schema)"
@@ -62,7 +62,7 @@
             v-model:value="formModel[schema.field]"
             :class="{ isFull: schema.isFull != false && getProps.isFull }"
           />
-          <!--组件后面的内容-->
+          <!--The content behind the component-->
           <template v-if="schema.suffix">
             <slot
               :name="schema.suffix"
@@ -73,7 +73,7 @@
           </template>
         </n-form-item>
       </n-gi>
-      <!--提交 重置 展开 收起 按钮-->
+      <!--Submit reset expansion collaborator-->
       <n-gi
         :span="isInline ? '' : 24"
         :suffix="isInline ? true : false"
@@ -113,7 +113,7 @@
                 <UpOutlined />
               </n-icon>
             </template>
-            {{ overflow ? '展开' : '收起' }}
+            {{ overflow ? 'Expand' : 'Put away' }}
           </n-button>
         </n-space>
       </n-gi>

@@ -1,16 +1,16 @@
 import { ComponentType } from '/types/index';
 
 /**
- * @description: 生成placeholder
+ * @description: Generate PlaceHolder
  */
 export function createPlaceholderMessage(component: ComponentType) {
-  if (component === 'NInput') return '请输入';
+  if (component === 'NInput') return 'please enter';
   if (
     ['NPicker', 'NSelect', 'NCheckbox', 'NRadio', 'NSwitch', 'NDatePicker', 'NTimePicker'].includes(
       component
     )
   )
-    return '请选择';
+    return 'please choose';
   return '';
 }
 
@@ -21,7 +21,7 @@ function genType() {
 }
 
 /**
- * 时间字段
+ * Time field
  */
 export const dateItemType = genType();
 

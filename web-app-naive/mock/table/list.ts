@@ -21,7 +21,7 @@ const tableList = (pageSize) => {
 };
 
 export default [
-  //表格数据列表
+  //Table data list
   {
     url: '/api/table/list',
     timeout: 1000,

@@ -8,7 +8,7 @@
     </template>
     <template #action v-if="!$slots.action">
       <n-space>
-        <n-button @click="closeModal">取消</n-button>
+        <n-button @click="closeModal">Cancel</n-button>
         <n-button type="primary" :loading="subLoading" @click="handleSubmit">{{
           subBtuText
         }}</n-button>

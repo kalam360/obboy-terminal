@@ -1,7 +1,7 @@
 import http from '@/utils/http/axios';
 
 /**
- * @description: 根据用户id获取用户菜单
+ * @description: Get the user menu according to the user ID
  */
 export function adminMenus() {
   return http.request({
@@ -11,7 +11,7 @@ export function adminMenus() {
 }
 
 /**
- * 获取tree菜单列表
+ * Get the list of Tree menu
  * @param params
  */
 export function getMenuList(params?) {

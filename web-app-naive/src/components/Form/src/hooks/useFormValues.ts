@@ -10,7 +10,7 @@ interface UseFormValuesContext {
   formModel: Recordable;
 }
 export function useFormValues({ defaultFormModel, getSchema, formModel }: UseFormValuesContext) {
-  // 加工 form values
+  // Processing Form Values
   function handleFormValues(values: Recordable) {
     if (!isObject(values)) {
       return {};
@@ -27,7 +27,7 @@ export function useFormValues({ defaultFormModel, getSchema, formModel }: UseFor
       ) {
         continue;
       }
-      // 删除空格
+      // Delete space
       if (isString(value)) {
         value = value.trim();
       }
@@ -36,7 +36,7 @@ export function useFormValues({ defaultFormModel, getSchema, formModel }: UseFor
     return res;
   }
 
-  //初始化默认值
+  //Initialization default value
   function initDefault() {
     const schemas = unref(getSchema);
     const obj: Recordable = {};

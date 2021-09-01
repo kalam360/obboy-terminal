@@ -47,7 +47,7 @@ export function useDataSource(
     try {
       setLoading(true);
       const { request, pagination }: any = unref(propsRef);
-      //组装分页信息
+      //Assemble paging information
       const pageField = APISETTING.pageField;
       const sizeField = APISETTING.sizeField;
       const totalField = APISETTING.totalField;
@@ -71,7 +71,7 @@ export function useDataSource(
       const resultTotal = res[totalField] || 0;
       const currentPage = res[pageField];
 
-      // 如果数据异常，需获取正确的页码再次执行
+      // If the data is abnormal, you need to get the correct page number again.
       if (resultTotal) {
         if (page > resultTotal) {
           setPagination({

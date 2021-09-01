@@ -1,14 +1,14 @@
 export enum PageEnum {
-  // 登录
+  // Log in
   BASE_LOGIN = '/login',
   BASE_LOGIN_NAME = 'Login',
-  //重定向
+  //Redirect
   REDIRECT = '/redirect',
   REDIRECT_NAME = 'Redirect',
-  // 首页
+  // front page
   BASE_HOME = '/dashboard',
-  //首页跳转默认路由
+  //Home jump default route
   BASE_HOME_REDIRECT = '/dashboard/console',
-  // 错误
+  // mistake
   ERROR_PAGE_NAME = 'ErrorPage',
 }

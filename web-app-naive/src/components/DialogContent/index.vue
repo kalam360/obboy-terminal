@@ -5,7 +5,7 @@
   export default {
     name: 'DialogContent',
     setup() {
-      //挂载在 window 方便与在js中使用
+      //Mounting in WINDOW is convenient to use in JS
       window['$dialog'] = useDialog();
     },
   };

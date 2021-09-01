@@ -2,27 +2,27 @@ import { Random } from 'mockjs';
 import { resultSuccess } from '../_util';
 
 const consoleInfo = {
-  //访问量
+  //Views
   visits: {
     dayVisits: Random.float(10000, 99999, 2, 2),
     rise: Random.float(10, 99),
     decline: Random.float(10, 99),
     amount: Random.float(99999, 999999, 3, 5),
   },
-  //销售额
+  //Sales
   saleroom: {
     weekSaleroom: Random.float(10000, 99999, 2, 2),
     amount: Random.float(99999, 999999, 2, 2),
     degree: Random.float(10, 99),
   },
-  //订单量
+  //Order quantity
   orderLarge: {
     weekLarge: Random.float(10000, 99999, 2, 2),
     rise: Random.float(10, 99),
     decline: Random.float(10, 99),
     amount: Random.float(99999, 999999, 2, 2),
   },
-  //成交额度
+  //Transaction
   volume: {
     weekLarge: Random.float(10000, 99999, 2, 2),
     rise: Random.float(10, 99),
@@ -32,7 +32,7 @@ const consoleInfo = {
 };
 
 export default [
-  //主控台 卡片数据
+  //Main control station card data
   {
     url: '/api/dashboard/console',
     timeout: 1000,

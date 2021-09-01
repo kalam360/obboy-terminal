@@ -1,10 +1,10 @@
 import { computed, onMounted, reactive, toRefs } from 'vue';
 
 interface Battery {
-  charging: boolean; // 当前电池是否正在充电
-  chargingTime: number; // 距离充电完毕还需多少秒，如果为0则充电完毕
-  dischargingTime: number; // 代表距离电池耗电至空且挂起需要多少秒
-  level: number; // 代表电量的放大等级，这个值在 0.0 至 1.0 之间
+  charging: boolean; // Whether the current battery is charging
+  chargingTime: number; // How much is the distance from charge, if 0 is charged?
+  dischargingTime: number; // Represents how much is the battery is expensive and how to hang up
+  level: number; // On behalf of the magnification level, this value is between 0.0 and 1.0
   [key: string]: any;
 }
 
@@ -18,7 +18,7 @@ export const useBattery = () => {
     },
   });
 
-  // 更新电池使用状态
+  // Update battery usage
   const updateBattery = (target) => {
     for (const key in state.battery) {
       state.battery[key] = target[key];
@@ -26,29 +26,29 @@ export const useBattery = () => {
     state.battery.level = state.battery.level * 100;
   };
 
-  // 计算电池剩余可用时间
+  // Computing battery remaining time
   const calcDischargingTime = computed(() => {
     const hour = state.battery.dischargingTime / 3600;
     const minute = (state.battery.dischargingTime / 60) % 60;
-    return `${~~hour}小时${~~minute}分钟`;
+    return `${~~hour}Hour${~~minute}minute`;
   });
 
-  // 计算电池充满剩余时间
+  // Computing battery is full of remaining time
   const calcChargingTime = computed(() => {
     console.log(state.battery);
     const hour = state.battery.chargingTime / 3600;
     const minute = (state.battery.chargingTime / 60) % 60;
-    return `${~~hour}小时${~~minute}分钟`;
+    return `${~~hour}Hour${~~minute}minute`;
   });
 
-  // 电池状态
+  // Battery status
   const batteryStatus = computed(() => {
     if (state.battery.charging && state.battery.level >= 100) {
-      return '已充满';
+      return 'be filled';
     } else if (state.battery.charging) {
-      return '充电中';
+      return 'charging';
     } else {
-      return '已断开电源';
+      return 'Disconnected';
     }
   });
 
@@ -56,19 +56,19 @@ export const useBattery = () => {
     const BatteryManager: Battery = await (window.navigator as any).getBattery();
     updateBattery(BatteryManager);
 
-    // 电池充电状态更新时被调用
+    // The battery is called when the state is updated.
     BatteryManager.onchargingchange = ({ target }) => {
       updateBattery(target);
     };
-    // 电池充电时间更新时被调用
+    // Call when the battery charging time is updated
     BatteryManager.onchargingtimechange = ({ target }) => {
       updateBattery(target);
     };
-    // 电池断开充电时间更新时被调用
+    // The battery is disconnected when the charge is updated.
     BatteryManager.ondischargingtimechange = ({ target }) => {
       updateBattery(target);
     };
-    // 电池电量更新时被调用
+    // Call when the battery is updated
     BatteryManager.onlevelchange = ({ target }) => {
       updateBattery(target);
     };

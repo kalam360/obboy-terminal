@@ -1,9 +1,9 @@
 /**
- * 将对象添加当作参数拼接到URL上面
- * @param baseUrl 需要拼接的url
- * @param obj 参数对象
- * @returns {string} 拼接后的对象
- * 例子:
+ * Add objects as parameters stitching to the URL
+ * @param baseUrl Url that needs to be spliced
+ * @param obj Parameter object
+ * @returns {string} Stitching object
+ * example:
  *  let obj = {a: '3', b: '4'}
  *  setObjToUrlParams('www.baidu.com', obj)
  *  ==>www.baidu.com?a=3&b=4

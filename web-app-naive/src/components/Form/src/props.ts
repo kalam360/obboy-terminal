@@ -4,77 +4,77 @@ import type { GridProps, GridItemProps } from 'naive-ui/lib/grid';
 import type { ButtonProps } from 'naive-ui/lib/button';
 import { propTypes } from '@/utils/propTypes';
 export const basicProps = {
-  // 标签宽度  固定宽度
+  // 标签宽度  FLabel width width
   labelWidth: {
     type: [Number, String] as PropType<number | string>,
     default: 80,
   },
-  // 表单配置规则
+  //Form configuration rule
   schemas: {
     type: [Array] as PropType<FormSchema[]>,
     default: () => [],
   },
-  //布局方式
+  //Layout method
   layout: {
     type: String,
     default: 'inline',
   },
-  //是否展示为行内表单
+  //Whether to show the in-line form
   inline: {
     type: Boolean,
     default: false,
   },
-  //大小
+  //size
   size: {
     type: String,
     default: 'medium',
   },
-  //标签位置
+  //Label location
   labelPlacement: {
     type: String,
     default: 'left',
   },
-  //组件是否width 100%
+  //Component WIDTH 100%
   isFull: {
     type: Boolean,
     default: true,
   },
-  //是否显示操作按钮（查询/重置）
+  //Whether to display an operation button (inquiry/Reset)
   showActionButtonGroup: propTypes.bool.def(true),
-  // 显示重置按钮
+  // Display reset button
   showResetButton: propTypes.bool.def(true),
-  //重置按钮配置
+  //Reset button configuration
   resetButtonOptions: Object as PropType<Partial<ButtonProps>>,
-  // 显示确认按钮
+  // Show confirmation button
   showSubmitButton: propTypes.bool.def(true),
-  // 确认按钮配置
+  // Confirm button configuration
   submitButtonOptions: Object as PropType<Partial<ButtonProps>>,
-  //展开收起按钮
+  //Expand Collapse button
   showAdvancedButton: propTypes.bool.def(true),
-  // 确认按钮文字
+  // Confirm button text
   submitButtonText: {
     type: String,
-    default: '查询',
+    default: 'Inquire',
   },
-  //重置按钮文字
+  //Reset button text
   resetButtonText: {
     type: String,
-    default: '重置',
+    default: 'Reset',
   },
-  //grid 配置
+  //grid Configure
   gridProps: Object as PropType<GridProps>,
-  //gi配置
+  //GI configuration
   giProps: Object as PropType<GridItemProps>,
-  //grid 样式
+  //grid style
   baseGridStyle: {
     type: Object as PropType<CSSProperties>,
   },
-  //是否折叠
+  //Whether it is folded
   collapsed: {
     type: Boolean,
     default: false,
   },
-  //默认展示的行数
+  //The number of rows of default display
   collapsedRows: {
     type: Number,
     default: 1,

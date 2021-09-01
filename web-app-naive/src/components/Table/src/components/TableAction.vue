@@ -13,7 +13,7 @@
         <slot name="more"></slot>
         <n-button v-bind="getMoreProps" class="mx-2" v-if="!$slots.more" icon-placement="right">
           <div class="flex items-center">
-            <span>更多</span>
+            <span>More</span>
             <n-icon size="14" class="ml-1">
               <DownOutlined />
             </n-icon>
@@ -112,7 +112,7 @@
           })
           .map((action) => {
             const { popConfirm } = action;
-            //需要展示什么风格，自己修改一下参数
+            //Need something style, modify the parameters yourself
             return {
               size: 'small',
               text: actionText,
