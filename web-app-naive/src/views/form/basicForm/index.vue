@@ -70,8 +70,8 @@
             </n-form-item>
             <div style="margin-left: 80px">
               <n-space>
-                <n-button type="primary" @click="formSubmit">提交预约</n-button>
-                <n-button @click="resetForm">重置</n-button>
+                <n-button type="primary" @click="formSubmit">Submit an appointment</n-button>
+                <n-button @click="resetForm">Reset</n-button>
               </n-space>
             </div>
           </n-form>
@@ -91,30 +91,30 @@
 
   const matterList = [
     {
-      label: '种牙',
+      label: 'Dental implants',
       value: 1,
     },
     {
-      label: '补牙',
+      label: 'Fill your teeth',
       value: 2,
     },
     {
-      label: '根管',
+      label: 'Root canal',
       value: 3,
     },
   ];
 
   const doctorList = [
     {
-      label: '李医生',
+      label: 'Dr. Li',
       value: 1,
     },
     {
-      label: '黄医生',
+      label: 'Wagon',
       value: 2,
     },
     {
-      label: '张医生',
+      label: 'Dr. Zhang',
       value: 3,
     },
   ];
@@ -122,29 +122,29 @@
   const rules = {
     name: {
       required: true,
-      message: '请输入预约姓名',
+      message: 'Please enter an appointment name',
       trigger: 'blur',
     },
     remark: {
       required: true,
-      message: '请输入预约备注',
+      message: 'Please enter an appointment note',
       trigger: 'blur',
     },
     mobile: {
       required: true,
-      message: '请输入预约电话号码',
+      message: 'Please enter an appointment phone number',
       trigger: ['input'],
     },
     datetime: {
       required: true,
       type: 'number',
-      message: '请选择预约时间',
+      message: 'Please select an appointment time',
       trigger: ['blur', 'change'],
     },
     doctor: {
       required: true,
       type: 'number',
-      message: '请选择预约医生',
+      message: 'Please choose a reservation doctor',
       trigger: 'change',
     },
   };
@@ -176,9 +176,9 @@
   function formSubmit() {
     formRef.value.validate((errors) => {
       if (!errors) {
-        message.success('验证成功');
+        message.success('Verification success');
       } else {
-        message.error('验证失败，请填写完整信息');
+        message.error('Verification failed, please fill in the full information');
       }
     });
   }

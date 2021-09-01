@@ -3,18 +3,18 @@
     <div class="result-box">
       <n-result
         status="info"
-        title="提示"
-        description="本次提交，将在24小时候内自动转入对方账户，如操作失误，请及时撤回"
+        title="hint"
+        description="This submission will automatically transfer to the other party within 24 hours, such as the operation error, please recover in time"
       >
         <div class="result-box-extra">
-          <p>您提交的内容如下：</p>
+          <p>The content you submit is as follows:</p>
           <p class="mt-3">
             <n-space align="center">
               <n-icon size="20" color="#18a058">
                 <CheckCircleOutlined />
               </n-icon>
-              <span>转入支付宝账户（189****5426）：￥1980元</span>
-              <n-button type="info" text>立即撤回</n-button>
+              <span>Transfer to Alipay account (189 **** 5426): ¥ 1980</span>
+              <n-button type="info" text>Recover immediately</n-button>
             </n-space>
           </p>
           <p class="mt-3">
@@ -22,17 +22,17 @@
               <n-icon size="20" color="#18a058">
                 <CheckCircleOutlined />
               </n-icon>
-              <span>转入支付宝账户（187****5426）：￥2980元</span>
-              <n-button type="info" text>立即撤回</n-button>
+              <span>Transfer to Alipay account (187 **** 5426): ¥ 2980 yuan</span>
+              <n-button type="info" text>Recover immediately</n-button>
             </n-space>
           </p>
         </div>
         <template #footer>
           <div class="flex justify-center mb-4">
             <n-space align="center">
-              <n-button type="info" @click="goHome">回到首页</n-button>
-              <n-button>查看详情</n-button>
-              <n-button>全部撤回</n-button>
+              <n-button type="info" @click="goHome">back to the homepage</n-button>
+              <n-button>check the details</n-button>
+              <n-button>All withdrawn</n-button>
             </n-space>
           </div>
         </template>

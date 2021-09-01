@@ -2,85 +2,85 @@
   <n-grid cols="2 s:2 m:2 l:3 xl:3 2xl:3" responsive="screen">
     <n-grid-item>
       <n-form :label-width="120" :model="formValue" :rules="rules" ref="formRef">
-        <n-form-item label="商品图片(大)">
+        <n-form-item label="product picture(Big)">
           <n-space align="center">
-            <span>宽度：</span>
+            <span>width:</span>
             <n-input
               v-model:value="formValue.bigWidth"
               style="width: 80px"
-              placeholder="宽度像素"
+              placeholder="Width pixel"
             />
-            <span>高度：</span>
+            <span>high:</span>
             <n-input
               v-model:value="formValue.bigHeight"
               style="width: 80px"
-              placeholder="高度像素"
+              placeholder="Height pixel"
             />
           </n-space>
         </n-form-item>
 
-        <n-form-item label="商品图片(小)">
+        <n-form-item label="product picture(small)">
           <n-space align="center">
-            <span>宽度：</span>
+            <span>width:</span>
             <n-input
               v-model:value="formValue.smallWidth"
               style="width: 80px"
-              placeholder="宽度像素"
+              placeholder="Width pixel"
             />
-            <span>高度：</span>
+            <span>high:</span>
             <n-input
               v-model:value="formValue.smallHeight"
               style="width: 80px"
-              placeholder="高度像素"
+              placeholder="Height pixel"
             />
           </n-space>
         </n-form-item>
 
-        <n-form-item label="水印透明度" path="watermarkClarity">
+        <n-form-item label="Watermark transparency" path="watermarkClarity">
           <n-input-number
             v-model:value="formValue.watermarkClarity"
             :show-button="false"
-            placeholder="请输入水印透明度"
+            placeholder="Please enter watermark transparency"
           />
         </n-form-item>
 
-        <n-form-item label="水印图片" path="watermarkClarity">
+        <n-form-item label="Watermark picture" path="watermarkClarity">
           <n-upload action="http://www.mocky.io/v2/5e4bafc63100007100d8b70f">
-            <n-button>上传文件</n-button>
+            <n-button>upload files</n-button>
           </n-upload>
         </n-form-item>
 
-        <n-form-item label="水印位置" path="watermarkPlace">
+        <n-form-item label="Watermark location" path="watermarkPlace">
           <n-select
-            placeholder="请选择价格精确方式"
+            placeholder="Please choose a price exact way"
             :options="watermarkPlaceList"
             v-model:value="formValue.watermarkPlace"
           />
         </n-form-item>
 
-        <n-form-item label="价格精确位数" path="pricePreciseNum">
+        <n-form-item label="Prices accurate number" path="pricePreciseNum">
           <n-select
-            placeholder="请选择价格精确位数"
+            placeholder="Please select a price exact bit number"
             :options="pricePreciseNumList"
             v-model:value="formValue.pricePreciseNum"
           />
         </n-form-item>
 
-        <n-form-item label="价格精确方式" path="pricePrecise">
+        <n-form-item label="Expected method" path="pricePrecise">
           <n-select
-            placeholder="请选择价格精确方式"
+            placeholder="Please choose a price exact way"
             :options="pricePreciseList"
             v-model:value="formValue.pricePrecise"
           />
         </n-form-item>
 
-        <n-form-item label="前台显示市场价" path="isMarketPrice">
+        <n-form-item label="The front desk shows the market price" path="isMarketPrice">
           <n-switch size="large" v-model:value="formValue.isMarketPrice" />
         </n-form-item>
 
         <div>
           <n-space>
-            <n-button type="primary" @click="formSubmit">更新显示信息</n-button>
+            <n-button type="primary" @click="formSubmit">Update display information</n-button>
           </n-space>
         </div>
       </n-form>
@@ -95,59 +95,59 @@
   const rules = {
     name: {
       required: true,
-      message: '请输入网站名称',
+      message: 'Please enter the name of the website',
       trigger: 'blur',
     },
     mobile: {
       required: true,
-      message: '请输入联系电话',
+      message: 'Please type your phone number',
       trigger: 'input',
     },
   };
   const watermarkPlaceList = [
     {
-      label: '左上',
+      label: 'Upper left',
       value: 1,
     },
     {
-      label: '右上',
+      label: 'Upper right',
       value: 2,
     },
     {
-      label: '居中',
+      label: 'Center',
       value: 3,
     },
     {
-      label: '右下',
+      label: 'Lower right',
       value: 4,
     },
   ];
 
   const pricePreciseNumList = [
     {
-      label: '2位',
+      label: '2',
       value: 1,
     },
     {
-      label: '3位',
+      label: '3-bit',
       value: 2,
     },
     {
-      label: '4位',
+      label: '4 bit',
       value: 3,
     },
   ];
   const pricePreciseList = [
     {
-      label: '四舍五入',
+      label: 'rounding',
       value: 1,
     },
     {
-      label: '向上取整',
+      label: 'Rounded up',
       value: 2,
     },
     {
-      label: '向下取整',
+      label: 'Come down',
       value: 3,
     },
   ];
@@ -174,12 +174,12 @@
       function systemOpenChange(value) {
         if (!value) {
           dialog.warning({
-            title: '提示',
-            content: '您确定要关闭系统访问吗？该操作立马生效，请慎重操作！',
-            positiveText: '确定',
-            negativeText: '取消',
+            title: 'hint',
+            content: 'Do you sure you want to turn off your system? This operation immediately took effect, please take carefully!',
+            positiveText: 'Sure',
+            negativeText: 'Cancel',
             onPositiveClick: () => {
-              message.success('操作成功');
+              message.success('Successful operation');
             },
             onNegativeClick: () => {
               state.formValue.systemOpen = true;
@@ -191,9 +191,9 @@
       function formSubmit() {
         formRef.value.validate((errors) => {
           if (!errors) {
-            message.success('验证成功');
+            message.success('Verification success');
           } else {
-            message.error('验证失败，请填写完整信息');
+            message.error('Verification failed, please fill in the full information');
           }
         });
       }

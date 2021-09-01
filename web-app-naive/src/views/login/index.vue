@@ -6,7 +6,7 @@
         <div class="view-account-top-logo">
           <img src="~@/assets/images/account-logo.png" alt="" />
         </div>
-        <div class="view-account-top-desc">Naive Ui Admin中台前端/设计解决方案</div>
+        <div class="view-account-top-desc">NAIVE UI Admin Transportation / Design Solution</div>
       </div>
       <div class="view-account-form">
         <n-form
@@ -17,7 +17,7 @@
           :rules="rules"
         >
           <n-form-item path="username">
-            <n-input v-model:value="formInline.username" placeholder="请输入用户名">
+            <n-input v-model:value="formInline.username" placeholder="please enter user name">
               <template #prefix>
                 <n-icon size="18" color="#808695">
                   <PersonOutline />
@@ -30,7 +30,7 @@
               v-model:value="formInline.password"
               type="password"
               show-password-toggle
-              placeholder="请输入密码"
+              placeholder="Please enter your password"
             >
               <template #prefix>
                 <n-icon size="18" color="#808695">
@@ -47,22 +47,22 @@
           <n-form-item class="default-color">
             <div class="flex justify-between">
               <div class="flex-initial">
-                <n-checkbox v-model:checked="autoLogin">自动登录</n-checkbox>
+                <n-checkbox v-model:checked="autoLogin">auto login</n-checkbox>
               </div>
               <div class="flex-initial order-last">
-                <a href="javascript:">忘记密码</a>
+                <a href="javascript:">forget the password</a>
               </div>
             </div>
           </n-form-item>
           <n-form-item>
             <n-button type="primary" @click="handleSubmit" size="large" :loading="loading" block>
-              登录
+              Log in
             </n-button>
           </n-form-item>
           <n-form-item class="default-color">
             <div class="flex view-account-other">
               <div class="flex-initial">
-                <span>其它登录方式</span>
+                <span>Other login method</span>
               </div>
               <div class="flex-initial mx-2">
                 <a href="javascript:">
@@ -79,7 +79,7 @@
                 </a>
               </div>
               <div class="flex-initial" style="margin-left: auto">
-                <a href="javascript:">注册账号</a>
+                <a href="javascript:">Register an account</a>
               </div>
             </div>
           </n-form-item>
@@ -115,13 +115,13 @@
   });
 
   const rules = {
-    username: { required: true, message: '请输入用户名', trigger: 'blur' },
-    password: { required: true, message: '请输入密码', trigger: 'blur' },
+    username: { required: true, message: 'please enter user name', trigger: 'blur' },
+    password: { required: true, message: 'Please enter your password', trigger: 'blur' },
     isCaptcha: {
       required: true,
       type: 'boolean',
       trigger: 'change',
-      message: '请点击按钮进行验证码校验',
+      message: 'Please click the button to verify the verification code check',
       validator: (_, value) => value === true,
     },
   };
@@ -136,7 +136,7 @@
     formRef.value.validate(async (errors) => {
       if (!errors) {
         const { username, password } = formInline;
-        message.loading('登录中...');
+        message.loading('logging in...');
         loading.value = true;
 
         const params: FormState = {
@@ -148,17 +148,17 @@
 
         if (code == ResultEnum.SUCCESS) {
           const toPath = decodeURIComponent((route.query?.redirect || '/') as string);
-          message.success('登录成功！');
+          message.success('login successful!');
           router.replace(toPath).then((_) => {
             if (route.name == 'login') {
               router.replace('/');
             }
           });
         } else {
-          message.info(msg || '登录失败');
+          message.info(msg || 'Login failed');
         }
       } else {
-        message.error('请填写完整信息，并且进行验证码校验');
+        message.error('Please fill in the full information and verify the code verification');
       }
     });
   };

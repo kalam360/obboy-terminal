@@ -3,17 +3,17 @@
 ## 1.5.5 (2021-08-14)
 
 ### 🐛 Bug Fixes
-- 修复路由只存在一个子路由，图标不显示问题
-- UI样式美化
+- Repair route only there is a sub-route, the icon does not display the problem
+- UI style beautification
 
 - ### ✨ Features
-- 支持 Vue 3.2.x 
-- 代码全部按 `script setup` 语法重写（完成80%）  
-- 新增 `回到顶部` 功能  
-- 新增 `拖拽` 示例页面
-- 新增 `富文本` 组件
-- 新增 `路由切换动画` 可在项目设置切换  
-- 依赖升级
+- Support Vue 3.2.x
+- The code is overwritten by `Script setup` grammatical rewrite (80%)
+- Add new` Back to top`
+- Add new` Drag and drop `Sample page
+- Add new `rich text`
+- Add new `Routing animation` can switch in project settings
+- Dependency upgrade
 
 # CHANGELOG
 
@@ -21,161 +21,159 @@
 
 ### 🐛 Bug Fixes
 
-- `暗色模式下多页签背景问题 ` 合并 [#23](https://github.com/jekip/naive-ui-admin/pull/23) 感谢 [@Dishone](https://github.com/Dishone)
-- `表格设置列，重复添加action列样式错乱问题` 合并 [#24](https://github.com/jekip/naive-ui-admin/pull/24) 感谢 [@CasbaL](https://github.com/CasbaL)
+- `Dark pattern multi-page background problem` merge [# 23] (https://github.com/jekip/naive-ui-admin/pull/23) Thank [@dishone] (https://github.com / DISHONE
+- `Table set column, repeat Add Action Route Style Confucius Question` Merge [# 24] (https://github.com/jekip/naive-ui-admin/pull/24) Thank [@casbal] (https: // Github.com/casbal)
 
 - ### ✨ Features
-- 新增 `路由支持（内联外部地址）`配置
-- 新增 `顶部菜单` logo展示
--（破坏性更新）
-- 优化 `动态路由配置` 取消`constantRouterComponents.ts`，中组件映射配置，更名为 `router-icons.ts`
-- 优化 `admin_info接口结构`，roles 更名为：permissions，roles.roleName，更名为：label
-- 优化 多级路由，当没有配置`redirect`时，默认为第一个子路由，配置则优先按配置
-- 依赖升级
-
+- Add new `Routing support (inline external address)` configuration
+- Added `top menu` logo display
+- (Destructive update)
+- Optimize `Dynamic Route Configuration`, Parts Mapping Configuration, Change Name` Router-icons.ts.ts.Ts`
+- Optimize the `admin_info interface structure`, Roles is renamed: Permissions, Roles.RoleName, Rename: Label
+- Optimize multi-level routing, when no casement is configured` Redirect`, the default is the first sub-route, the configuration is prioritized
+- Dependency upgrade
 # 1.5.3 (2021-08-09)
 ### 🐛 Bug Fixes
-- 修复顶部菜单，选中联动
-- 修复混合菜单模式，切换其他模式菜单未重置
-- 实例基础列表，和表格组件实例，开启横向滚动特性
-- `naiveui` 升级成最新版
+- Repair top menu, select linkage
+- Repair Mixed Menu mode, switch other modes menu is not reset
+- Example base list, and table component instance, turn on horizontal scroll characteristics
+- `Naiveui` Upgrade to the latest version
 
 - ### ✨ Features
-- table组件，默认开启 `ellipsis` 特性
-
+- Table Components, Default Opening` Ellips`
 
 
 # 1.5.2 (2021-08-06)
-### 🐛 Bug Fixes
-- 修复已知bug
+### 🐛 bug fixes
+- Repair known BUG
 
 - ### ✨ Features
-- 新增 `混合菜单模式`
-- 新增 `根路由`
-- 新增 `关于` 根路由示例页面
-- 文档同步更新，组件和示例
+- Add new `Mixed menu pattern`
+- Add new `root route`
+- Added `About` Root Road Sample page
+- Document synchronization update, components and examples
 
 
 
 # 1.5.1 (2021-08-05)
-### 🐛 Bug Fixes
-- 修复windows系统获取项目换行符问题
-- 修复表格分页计算问题 [@Chika99](https://github.com/Chika99)
-- 修复锁屏样式自适应问题 [@Chika99](https://github.com/Chika99)
-- 依赖 dayjs 移除，用date-fns，和UI框架底层保持一致
-- 修复已知bug 
+### 🐛 bug fixes
+- Repair Windows System Get Project Reasonable Problem
+- Repair Table Piece Calculation Question [@ chika99] (https://github.com/chika99)
+- Repair lock screen style adaptive problem [@ chika99] (https://github.com/chika99)
+- Relying on DayJS removal, maintain consistent with Date-FNs, and UI framework
+- Repair known BUG
 
 - ### ✨ Features
-- 新增 `baseForm` 组件，和`基础`，`useForm`使用方式
-- 新增 `baseModal`，组件，和 `useForm`使用方式  
-- 新增`子菜单` new Tag标签
-- 菜单支持 `根路由`配置
+- Added `baseform` components, and` foundation`, `useform`
+- Added `basemodal`, component, and` usform`
+- Add new `submenu` New tag label
+- Menu Support` Root Road` configuration
 
 
 
 
 # 1.5.0 (2021-07-30)
-### 🐛 Bug Fixes
-- 修复表格列配置，拖拽时最后的操作列重复增加
-- 多标签页交互优化
+### 🐛 bug fixes
+- Repair Table Column configuration, the last operational column repeatedly increased when dragging
+- Multi-tab page interaction optimization
 
 - ### ✨ Features
-- `项目文档`已上线
-- `Application`组件加载机制优化，解决路由守卫，Axios中可使用，Dialog，Message 等之类组件
-- `BasicTable` 组件新增`高度自适应`，`单元格编辑`，`整行编辑` 特性
-- `nprogress` 移除，用 `Loading Bar`代替
-- 打包支持`gzip`，`brotli` 压缩
-- 新增代理`VITE_PROXY`配置
-- 路由菜单，支持多级菜单
-- 依赖升级
-- 本次更新，有破坏性更新，涉及文件重命名，增删调整
+- `Project Document` has been on
+- `Application`mon loading mechanism optimization, resolve the route guard, AXIOS, Dialog, Message, etc.
+- `BasicTable` components New`might Edit`,` Cell Edit`, `Tutale Editor`
+- `NProgress` Remove, with` loading bar`
+- Package support` Gzip`, `brotli`
+- Added agent `Vite_Proxy` configuration
+- Route menu, support multi-level menu
+- Dependency upgrade
+- This update, destructive update, involving file rename, adding and deleting adjustment
 
 
 # 1.4.0 (2021-07-21)
-### 🐛 Bug Fixes
-- vite降至2.3.6
-- 多标签页交互优化
+### 🐛 bug fixes
+- Vite dropped to 2.3.6
+- Multi-tab page interaction optimization
 
 - ### ✨ Features
-- 新增 `TableAction` 组件
-- 新增 `菜单权限管理` 示例
-- 新增 `角色权限管理` 示例
-- 持续更新更多实用组件及示例，感谢Star
+- Add new `TableAction`
+- Add new `menu permission management` example
+- Add new `role permission management` example
+- Continuous Update More Practical Components and Examples, Thank Star
 
 
 # 1.3.0 (2021-07-19)
-### 🐛 Bug Fixes
-- 修复多标签页左右切换按钮自适应展示
-- 修复登录页面出现多标签页
+### 🐛 bug fixes
+- Repair multi-tab left and right switch button adaptive display
+- Fix multiple tabs in the login page
 
 - ### ✨ Features
-- 新增 `Upload` 组件及配置
-- 新增 `VITE_GLOB_IMG_URL` 图片前缀地址，配合Upload
-- 新增 `滑块验证码` 组件
-- 新增 `登录页面-滑块验证码` 示例
-- 持续更新更多实用组件及示例，感谢Star
+- Added `UPLOAD` Component and Configuration
+- Added `vite_glob_img_url` picture prefix address, with UPLOAD
+- Add new` slider verification code`
+- Add new `login page - slider verification code` example
+- Continuous Update More Practical Components and Examples, Thank Star
 
 
 # 1.2.0 (2021-07-16)
-### 🐛 Bug Fixes
-- 修复面包屑显示登录页面
-- 菜单支持只展开当前父级菜单
+### 🐛 bug fixes
+- Repair breadcrumping display login page
+- Menu support only expands the current parent menu
   
 - ### ✨ Features
-- 新增 `列表页面-基础列表` 示例页面
-- 新增 `异常页面-404-403-500` 示例页面
-- 新增 `结果页面-成功-失败-信息` 示例页面
-- 新增 `设置页面-个人设置-系统设置` 示例页面
-- tips `示例页面，可能在深色主题显示不佳`  
-- 持续更新更多实用示例，同时也演示`Naive UI`使用方法
+- Added `list page - Basic list` Sample page
+- Added `Abnormal page -404-403-500` sample page
+- Added `result page - success - failed - Information` Sample page
+- Added `Settings page - Personal Settings - System Settings` Sample page
+- Tips `sample page, there is a poor display in dark topics`
+- Continuously update more practical examples, and also demonstrates `naive ui`
 
 
 # 1.1.0 (2021-07-15)
 - ### ✨ Features
-- 新增 `基础表单` 示例页面
-- 新增 `分步表单` 示例页面
-- 新增 `表单详情` 示例页面
-- 持续更新更多实用示例，同时也演示`Naive UI`使用方法
+- Added `Basic Forms` Sample page
+- Added` Peak Table Sets page
+- Added `Form Detail` Sample page
+- Continuously update more practical examples, and also demonstrates `naive ui`
 
 
 # 1.0.0 (2021-07-12)
-### 🐛 Bug Fixes
-- 修复页面切换面包屑未及时更新
+### 🐛 bug fixes
+- Repair page switching breadcrumbs are not updated in time
 
 - ### ✨ Features
-- 1.0骨架发布 
-- Naive UI 升级至2.15.4  
-- 菜单新增排序字段  
-- 新增 `ProTable` 组件，封装了常用的分页列配置等逻辑
-- 新增 `ProTable` 组件示例页面 
-- 持续更新中...
+- 1.0 skeleton release
+- NAIVE UI upgrade to 2.15.4
+- New Sort Sort Field
+- Added `Protable` component, encapsulates logic of commonly used categories column configuration
+- Added` Protable` Component Sample page
+- Continuous update ...
 
 
 # 0.1.1-beta (2021-07-07)
-### 🐛 Bug Fixes
-- 修正黑色主题，页面背景色和导航风格问题
+### 🐛 bug fixes
+- Correct black theme, page background color and navigation style problem
   
 - ### ✨ Features
-- 主控台，工作台，自适应支持
-- 左侧菜单屏幕可视宽度<=950 自动收起
-- 页脚是否显示，可配置
-- 新增页面缓存，演示页面在>工作台>动态卡片>输入框
+- Main control station, workbench, adaptive support
+- On the left menu screen visual width <= 950 automatically
+- Whether footage is displayed, configurable
+- New page cache, demo page in> Workbench> Dynamic card> Enter box
 
 
 
 # 0.1.0-beta (2021-07-04)
-- Naive Ui Admin 骨架
-- ### ✨ Features 
-- 菜单模式（左侧/顶部）
-- 权限（固定角色/动态路由菜单）
-- 主题（深色/浅色）引用 naiveui 特性，黑暗主题/自定义组件，暗黑主题信手捏来
-- 系统主题（十种安全色，可切换预览，可自定义）
-- 导航风格（三种，可自由搭配，暗色侧边/白色侧边和通栏/暗色侧边和顶部通栏）
-- 多页签，持久化，拖拽，关闭，固定
-- 面包屑，图标，子菜单下拉联动展示
-- 漂亮的锁屏界面
-- 在线配置抽屉（布局预览功能）
-- 主控台，简单写了一下，能看了
-- 工作台随意撸了一下（不想写style）用 tailwindcss大开杀戒了
-- echarts，官网例子很全了，没啥好撸的，偷懒再次引用vben作者的代码，再感谢一次，哈哈
-- 挑个合适的时间，发布一下源码到 github
+- NAIVE UI Admin Skeleton
+- ### ✨ Features
+- Menu mode (left / top)
+- Permissions (fixed role / dynamic routing menu)
+- Theme (Dark / Light) Reference Naiveui Characteristics, Dark Topics / Customize Components, Diablo Theme Letter
+- System Topics (Ten Security Colors, Switching Preview, Customize)
+- Navigation style (three, free to match, dark side / white side and column / dark side and top columns)
+- Multi-page sign, persistence, drag, close, fixed
+- Bread crumbs, icons, submenu drop-offs display
+- Beautiful lock screen interface
+- Configure drawers online (layout preview feature)
+- Main control station, simply write, can watch
+- Workpapers are free to take it (don't want to write style) with tailwindcss big kills
+- Echarts, official website example is very all, no good, lazy, tell Vben authors again, thank you once, haha
+- Pick a suitable time, release the source code to Github

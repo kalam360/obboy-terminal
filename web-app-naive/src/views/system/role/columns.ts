@@ -7,15 +7,15 @@ export const columns = [
     key: 'id',
   },
   {
-    title: '角色名称',
+    title: 'Role Name',
     key: 'name',
   },
   {
-    title: '说明',
+    title: 'illustrate',
     key: 'explain',
   },
   {
-    title: '是否默认角色',
+    title: 'Whether the default role',
     key: 'isDefault',
     render(row) {
       return h(
@@ -24,13 +24,13 @@ export const columns = [
           type: row.isDefault ? 'success' : 'error',
         },
         {
-          default: () => (row.isDefault ? '是' : '否'),
+          default: () => (row.isDefault ? 'Yes' : 'no'),
         }
       );
     },
   },
   {
-    title: '创建时间',
+    title: 'Create time',
     key: 'create_date',
   },
 ];

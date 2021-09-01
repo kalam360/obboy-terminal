@@ -14,7 +14,7 @@
       :scroll-x="1590"
     >
       <template #toolbar>
-        <n-button type="primary" @click="reloadTable">刷新数据</n-button>
+        <n-button type="primary" @click="reloadTable">Refresh data</n-button>
       </template>
     </BasicTable>
   </n-card>

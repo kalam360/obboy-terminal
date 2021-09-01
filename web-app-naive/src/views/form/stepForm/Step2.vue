@@ -7,26 +7,26 @@
     ref="form2Ref"
     style="max-width: 500px; margin: 40px auto 0 80px"
   >
-    <n-form-item label="付款账户" path="myAccount">
+    <n-form-item label="payment account" path="myAccount">
       <span>NaiveUiAdmin@163.com</span>
     </n-form-item>
-    <n-form-item label="收款账户" path="account">
+    <n-form-item label="Accounts receivable" path="account">
       <span>NaiveUiAdmin@qq.com</span>
     </n-form-item>
-    <n-form-item label="收款人姓名" path="name">
+    <n-form-item label="Payee Name" path="name">
       <span>Ah jung</span>
     </n-form-item>
-    <n-form-item label="转账金额" path="money">
+    <n-form-item label="transfer amount" path="money">
       <span>￥1980</span>
     </n-form-item>
     <n-divider />
-    <n-form-item label="支付密码" path="password">
+    <n-form-item label="Pay password" path="password">
       <n-input type="password" v-model:value="formValue.password" />
     </n-form-item>
     <div style="margin-left: 80px">
       <n-space>
-        <n-button type="primary" :loading="loading" @click="formSubmit">提交</n-button>
-        <n-button @click="prevStep">上一步</n-button>
+        <n-button type="primary" :loading="loading" @click="formSubmit">submit</n-button>
+        <n-button @click="prevStep">Previous</n-button>
       </n-space>
     </div>
   </n-form>
@@ -46,7 +46,7 @@
   const rules = {
     password: {
       required: true,
-      message: '请输入支付密码',
+      message: 'Please enter the payment password',
       trigger: 'blur',
     },
   };
@@ -65,7 +65,7 @@
           emit('nextStep');
         }, 1500);
       } else {
-        message.error('验证失败，请填写完整信息');
+        message.error('Verification failed, please fill in the full information');
       }
     });
   }

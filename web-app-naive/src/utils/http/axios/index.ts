@@ -1,4 +1,4 @@
-// axios配置  可自行根据项目进行更改，只需更改该文件即可，其他文件可以不动
+// AXIOS configuration can be changed according to the project, just change the file, other files can not move
 import { VAxios } from './Axios';
 import { AxiosTransform } from './axiosTransform';
 import axios, { AxiosResponse } from 'axios';
@@ -22,11 +22,11 @@ import router from '@/router';
 import { storage } from '@/utils/Storage';
 
 /**
- * @description: 数据处理，方便区分多种处理方式
+ * @description: Data processing, convenient to distinguish a variety of processing methods
  */
 const transform: AxiosTransform = {
   /**
-   * @description: 处理请求数据
+   * @description: Process request data
    */
   transformRequestData: (res: AxiosResponse<Result>, options: RequestOptions) => {
     // @ts-ignore
@@ -41,12 +41,12 @@ const transform: AxiosTransform = {
       isReturnNativeResponse,
     } = options;
 
-    // 是否返回原生响应头 比如：需要获取响应头时使用该属性
+    // Whether to return native response heads such as: Use this property when you need to get your head
     if (isReturnNativeResponse) {
       return res;
     }
-    // 不进行任何处理，直接返回
-    // 用于页面代码可能需要直接获取code，data，message这些信息时开启
+    // Do not handle any processing, return directly
+    // Used for page code may need to get directly to Code, Data, Message this information is turned on
     if (!isTransformResponse) {
       return res.data;
     }
@@ -59,20 +59,20 @@ const transform: AxiosTransform = {
       // return '[HTTP] Request has no return value';
       return reject(data);
     }
-    //  这里 code，result，message为 后台统一的字段，需要在 types.ts内修改为项目自己的接口返回格式
+    //  Here Code, Result, Message is a unified field in the background, and you need to modify the project to the project to return format in Types.ts.
     const { code, result, message } = data;
-    // 请求成功
+    // Request success
     const hasSuccess = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS;
-    // 是否显示提示信息
+    // Whether to show prompt information
     if (isShowMessage) {
       if (hasSuccess && (successMessageText || isShowSuccessMessage)) {
-        // 是否显示自定义信息提示
+        // Whether to display a custom information prompt?
         Message.success(successMessageText || message || '操作成功！');
       } else if (!hasSuccess && (errorMessageText || isShowErrorMessage)) {
-        // 是否显示自定义信息提示
+        // Whether to display a custom information prompt?
         Message.error(message || errorMessageText || '操作失败！');
       } else if (!hasSuccess && options.errorMessageMode === 'modal') {
-        // errorMessageMode=‘custom-modal’的时候会显示modal错误弹窗，而不是消息提示，用于一些比较重要的错误
+        // ErrorMessageMode = 'CUSTOM-MODAL' will display MODAL error pop-up, not a message prompt, used for some important errors
         Modal.info({
           title: '提示',
           content: message,
@@ -82,33 +82,33 @@ const transform: AxiosTransform = {
       }
     }
 
-    // 接口请求成功，直接返回结果
+    // The interface request is successful, and the result is returned directly.
     if (code === ResultEnum.SUCCESS) {
       return result;
     }
-    // 接口请求错误，统一提示错误信息
+    // Interface request error, unified prompt error message
     if (code === ResultEnum.ERROR) {
       if (message) {
         Message.error(data.message);
         Promise.reject(new Error(message));
       } else {
-        const msg = '操作失败,系统异常!';
+        const msg = 'The operation failed, the system is abnormal!';
         Message.error(msg);
         Promise.reject(new Error(msg));
       }
       return reject();
     }
 
-    // 登录超时
+    // Login timeout
     if (code === ResultEnum.TIMEOUT) {
       if (router.currentRoute.value.name == 'login') return;
-      // 到登录页
-      const timeoutMsg = '登录超时,请重新登录!';
+      // Go to the login page
+      const timeoutMsg = 'Log in timeout, please log in!';
       Modal.warning({
-        title: '提示',
-        content: '登录身份已失效，请重新登录!',
-        positiveText: '确定',
-        negativeText: '取消',
+        title: 'hint',
+        content: 'Login identity has been invalid, please log in again!',
+        positiveText: 'Sure',
+        negativeText: 'Cancel',
         onPositiveClick: () => {
           storage.clear();
           router.replace({
@@ -123,7 +123,7 @@ const transform: AxiosTransform = {
       return reject(new Error(timeoutMsg));
     }
 
-    // 这里逻辑可以根据项目进行修改
+    // The logic here can be modified according to the project
     if (!hasSuccess) {
       return reject(new Error(message));
     }
@@ -131,7 +131,7 @@ const transform: AxiosTransform = {
     return data;
   },
 
-  // 请求之前处理config
+  // Processing config before requesting
   beforeRequestHook: (config, options) => {
     const { apiUrl, joinPrefix, joinParamsToUrl, formatDate, joinTime = true } = options;
 
@@ -145,10 +145,10 @@ const transform: AxiosTransform = {
     const params = config.params || {};
     if (config.method?.toUpperCase() === RequestEnum.GET) {
       if (!isString(params)) {
-        // 给 get 请求加上时间戳参数，避免从缓存中拿数据。
+        // Add a timestamp parameter to the GET request to avoid data from the cache.
         config.params = Object.assign(params || {}, joinTimestamp(joinTime, false));
       } else {
-        // 兼容restful风格
+        // Compatible with RESTful style
         config.url = config.url + params + `${joinTimestamp(joinTime, true)}`;
         config.params = undefined;
       }
@@ -161,7 +161,7 @@ const transform: AxiosTransform = {
           config.url = setObjToUrlParams(config.url as string, config.data);
         }
       } else {
-        // 兼容restful风格
+        // Compatible with RESTful style
         config.url = config.url + params;
         config.params = undefined;
       }
@@ -170,10 +170,10 @@ const transform: AxiosTransform = {
   },
 
   /**
-   * @description: 请求拦截器处理
+   * @description: Request interceptor processing
    */
   requestInterceptors: (config) => {
-    // 请求之前处理config
+    // Processing config before requesting
     const userStore = useUserStoreWidthOut();
     const token = userStore.getToken;
     if (token) {
@@ -184,26 +184,26 @@ const transform: AxiosTransform = {
   },
 
   /**
-   * @description: 响应错误处理
+   * @description: Response error handling
    */
   responseInterceptorsCatch: (error: any) => {
     // @ts-ignore
     const { $message: Message, $dialog: Modal } = window;
     const { response, code, message } = error || {};
-    // TODO 此处要根据后端接口返回格式修改
+    // TODO To return format modifications based on the rear end interface
     const msg: string =
       response && response.data && response.data.message ? response.data.message : '';
     const err: string = error.toString();
     try {
       if (code === 'ECONNABORTED' && message.indexOf('timeout') !== -1) {
-        Message.error('接口请求超时,请刷新页面重试!');
+        Message.error('Interface request timeout, please refresh the page retry!');
         return;
       }
       if (err && err.includes('Network Error')) {
         Modal.info({
-          title: '网络异常',
-          content: '请检查您的网络连接是否正常!',
-          positiveText: '确定',
+          title: 'network anomaly',
+          content: 'Please check if your network connection is normal!',
+          positiveText: 'Sure',
           onPositiveClick: () => {},
         });
         return;
@@ -211,12 +211,12 @@ const transform: AxiosTransform = {
     } catch (error) {
       throw new Error(error);
     }
-    // 请求是否被取消
+    // Request to be canceled
     const isCancel = axios.isCancel(error);
     if (!isCancel) {
       checkStatus(error.response && error.response.status, msg, Message);
     } else {
-      console.warn(error, '请求被取消！');
+      console.warn(error, 'Request is canceled!');
     }
     return error;
   },
@@ -224,26 +224,26 @@ const transform: AxiosTransform = {
 
 const Axios = new VAxios({
   timeout: 10 * 1000,
-  // 接口前缀
+  // Interface prefix
   prefixUrl: urlPrefix,
   headers: { 'Content-Type': ContentTypeEnum.JSON },
-  // 数据处理方式
+  // Data processing method
   transform,
-  // 配置项，下面的选项都可以在独立的接口请求中覆盖
+  // Configuration item, the following options can be overwritten in a separate interface request
   requestOptions: {
-    // 默认将prefix 添加到url
+    // Add prefix to the URL by default
     joinPrefix: true,
-    // 是否返回原生响应头 比如：需要获取响应头时使用该属性
+    // Whether to return native response heads such as: Use this property when you need to get your head
     isReturnNativeResponse: false,
-    // 需要对返回数据进行处理
+    // Need to process the return data
     isTransformResponse: true,
-    // post请求的时候添加参数到url
+    // Adding a parameter to the URL when POST request
     joinParamsToUrl: false,
-    // 格式化提交参数时间
+    // Format submission parameter time
     formatDate: true,
-    // 消息提示类型
+    // Message prompt type
     errorMessageMode: 'none',
-    // 接口地址
+    // interface address
     apiUrl: globSetting.apiUrl as string,
   },
   withCredentials: false,

@@ -7,33 +7,33 @@
     ref="form1Ref"
     style="max-width: 500px; margin: 40px auto 0 80px"
   >
-    <n-form-item label="付款账户" path="myAccount">
+    <n-form-item label="payment account" path="myAccount">
       <n-select
-        placeholder="请选择付款账户"
+        placeholder="Please select a payment account"
         :options="myAccountList"
         v-model:value="formValue.myAccount"
       />
     </n-form-item>
-    <n-form-item label="收款账户" path="account">
+    <n-form-item label="Accounts receivable" path="account">
       <n-input-group>
         <n-select
-          placeholder="请选择"
+          placeholder="please choose"
           :options="accountTypeList"
           :style="{ width: '20%' }"
           v-model:value="formValue.accountType"
         />
         <n-input
-          placeholder="请输入收款账户"
+          placeholder="Please enter the payment account"
           :style="{ width: '80%' }"
           v-model:value="formValue.account"
         />
       </n-input-group>
     </n-form-item>
-    <n-form-item label="收款人姓名" path="name">
-      <n-input placeholder="请输入收款人姓名" v-model:value="formValue.name" />
+    <n-form-item label="Payee Name" path="name">
+      <n-input placeholder="Please enter the payee name" v-model:value="formValue.name" />
     </n-form-item>
-    <n-form-item label="转账金额" path="money">
-      <n-input placeholder="请输入转账金额" v-model:value="formValue.money">
+    <n-form-item label="transfer amount" path="money">
+      <n-input placeholder="Please enter the transfer amount" v-model:value="formValue.money">
         <template #prefix>
           <span class="text-gray-400">￥</span>
         </template>
@@ -64,11 +64,11 @@
 
   const accountTypeList = [
     {
-      label: '微信',
+      label: 'WeChat',
       value: 1,
     },
     {
-      label: '支付宝',
+      label: 'Alipay',
       value: 2,
     },
   ];
@@ -89,23 +89,23 @@
   const rules = {
     name: {
       required: true,
-      message: '请输入收款人姓名',
+      message: 'Please enter the payee name',
       trigger: 'blur',
     },
     account: {
       required: true,
-      message: '请输入收款账户',
+      message: 'Please enter the payment account',
       trigger: 'blur',
     },
     money: {
       required: true,
-      message: '请输入转账金额',
+      message: 'Please enter the transfer amount',
       trigger: 'blur',
     },
     myAccount: {
       required: true,
       type: 'number',
-      message: '请选择付款账户',
+      message: 'Please select a payment account',
       trigger: 'change',
     },
   };
@@ -115,7 +115,7 @@
       if (!errors) {
         emit('nextStep');
       } else {
-        message.error('验证失败，请填写完整信息');
+        message.error('Verification failed, please fill in the full information');
       }
     });
   }

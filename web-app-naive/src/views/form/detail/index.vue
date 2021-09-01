@@ -96,20 +96,20 @@
             <td>1990-11-03</td>
             <td>
               <n-space>
-                <n-button size="small" type="error">删除</n-button>
-                <n-button size="small" type="info">查看</n-button>
+                <n-button size="small" type="error">delete</n-button>
+                <n-button size="small" type="info">Check</n-button>
               </n-space>
             </td>
           </tr>
           <tr>
-            <td>猎魔人</td>
-            <td>女</td>
-            <td>上海</td>
+            <td>Hunter</td>
+            <td>Female</td>
+            <td>Shanghai</td>
             <td>1992-03-11</td>
             <td>
               <n-space>
-                <n-button size="small" type="error">删除</n-button>
-                <n-button size="small" type="info">查看</n-button>
+                <n-button size="small" type="error">delete</n-button>
+                <n-button size="small" type="info">Check</n-button>
               </n-space>
             </td>
           </tr>

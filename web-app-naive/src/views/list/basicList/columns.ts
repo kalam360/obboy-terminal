@@ -8,12 +8,12 @@ export const columns = [
     width: 100,
   },
   {
-    title: '名称',
+    title: 'name',
     key: 'name',
     width: 100,
   },
   {
-    title: '头像',
+    title: 'Avatar',
     key: 'avatar',
     width: 100,
     render(row) {
@@ -24,7 +24,7 @@ export const columns = [
     },
   },
   {
-    title: '地址',
+    title: 'address',
     key: 'address',
     auth: ['basic_list'], // 同时根据权限控制是否显示
     ifShow: (_column) => {
@@ -33,17 +33,17 @@ export const columns = [
     width: 150,
   },
   {
-    title: '开始日期',
+    title: 'start date',
     key: 'beginTime',
     width: 160,
   },
   {
-    title: '结束日期',
+    title: 'End date',
     key: 'endTime',
     width: 160,
   },
   {
-    title: '创建时间',
+    title: 'Create time',
     key: 'date',
     width: 100,
   },

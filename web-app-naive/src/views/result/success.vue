@@ -3,18 +3,18 @@
     <div class="result-box">
       <n-result
         status="success"
-        title="操作成功"
-        description="提交结果页用于反馈一系列操作任务的处理结果，如果仅是简单操作，灰色区域可以显示一些补充的信息。"
+        title="Successful operation"
+        description="Submission results are used to feedback a series of operational tasks, if only simple operations are only simple, the gray area can display some supplementary information."
       >
         <div class="result-box-extra">
-          <p>已提交申请，等待财务部门审核。</p>
+          <p>Application has been submitted, waiting for the financial department to review.</p>
         </div>
         <template #footer>
           <div class="flex justify-center mb-4">
             <n-space align="center">
-              <n-button type="info" @click="goHome">回到首页</n-button>
-              <n-button>查看详情</n-button>
-              <n-button>打印</n-button>
+              <n-button type="info" @click="goHome">back to the homepage</n-button>
+              <n-button>check the details</n-button>
+              <n-button>Print</n-button>
             </n-space>
           </div>
         </template>

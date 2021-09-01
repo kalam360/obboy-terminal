@@ -1,16 +1,16 @@
 <template>
   <n-card :bordered="false" class="proCard">
     <div class="result-box">
-      <n-result status="error" title="操作失败" description="请核对并修改以下信息后，再重新提交。">
+      <n-result status="error" title="operation failed" description="Please check and modify the following information, then resubmit it.">
         <div class="result-box-extra">
-          <p>您提交的内容有如下错误：</p>
+          <p>The content you submit has the following error:</p>
           <p class="mt-3">
             <n-space align="center">
               <n-icon size="20" color="#f0a020">
                 <InfoCircleOutlined />
               </n-icon>
-              <span>认证照片不够清晰</span>
-              <n-button type="info" text>立即修改</n-button>
+              <span>Certified photos are not clear enough</span>
+              <n-button type="info" text>Immediate modification</n-button>
             </n-space>
           </p>
           <p class="mt-3">
@@ -18,17 +18,17 @@
               <n-icon size="20" color="#f0a020">
                 <InfoCircleOutlined />
               </n-icon>
-              <span>备注包含敏感字符，并且不能包含政治相关</span>
-              <n-button type="info" text>立即修改</n-button>
+              <span>Remarks contain sensitive characters and cannot include political correlation</span>
+              <n-button type="info" text>Immediate modification</n-button>
             </n-space>
           </p>
         </div>
         <template #footer>
           <div class="flex justify-center mb-4">
             <n-space align="center">
-              <n-button type="info" @click="goHome">回到首页</n-button>
-              <n-button>查看详情</n-button>
-              <n-button>打印</n-button>
+              <n-button type="info" @click="goHome">back to the homepage</n-button>
+              <n-button>check the details</n-button>
+              <n-button>Print</n-button>
             </n-space>
           </div>
         </template>

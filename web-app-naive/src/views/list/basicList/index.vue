@@ -22,12 +22,12 @@
               <PlusOutlined />
             </n-icon>
           </template>
-          新建
+          New construction
         </n-button>
       </template>
 
       <template #toolbar>
-        <n-button type="primary" @click="reloadTable">刷新数据</n-button>
+        <n-button type="primary" @click="reloadTable">Refresh data</n-button>
       </template>
     </BasicTable>
 
@@ -40,21 +40,21 @@
         :label-width="80"
         class="py-4"
       >
-        <n-form-item label="名称" path="name">
-          <n-input placeholder="请输入名称" v-model:value="formParams.name" />
+        <n-form-item label="name" path="name">
+          <n-input placeholder="Please enter the name" v-model:value="formParams.name" />
         </n-form-item>
-        <n-form-item label="地址" path="address">
-          <n-input type="textarea" placeholder="请输入地址" v-model:value="formParams.address" />
+        <n-form-item label="address" path="address">
+          <n-input type="textarea" placeholder="Please enter your address" v-model:value="formParams.address" />
         </n-form-item>
-        <n-form-item label="日期" path="date">
-          <n-date-picker type="datetime" placeholder="请选择日期" v-model:value="formParams.date" />
+        <n-form-item label="date" path="date">
+          <n-date-picker type="datetime" placeholder="Please select a date" v-model:value="formParams.date" />
         </n-form-item>
       </n-form>
 
       <template #action>
         <n-space>
-          <n-button @click="() => (showModal = false)">取消</n-button>
-          <n-button type="info" :loading="formBtnLoading" @click="confirmForm">确定</n-button>
+          <n-button @click="() => (showModal = false)">Cancel</n-button>
+          <n-button type="info" :loading="formBtnLoading" @click="confirmForm">Sure</n-button>
         </n-space>
       </template>
     </n-modal>
@@ -75,41 +75,41 @@
     name: {
       required: true,
       trigger: ['blur', 'input'],
-      message: '请输入名称',
+      message: 'Please enter the name',
     },
     address: {
       required: true,
       trigger: ['blur', 'input'],
-      message: '请输入地址',
+      message: 'Please enter your address',
     },
     date: {
       type: 'number',
       required: true,
       trigger: ['blur', 'change'],
-      message: '请选择日期',
+      message: 'Please select a date',
     },
   };
 
   const schemas = [
     {
       field: 'name',
-      labelMessage: '这是一个提示',
+      labelMessage: 'This is a prompt',
       component: 'NInput',
-      label: '姓名',
+      label: 'Name',
       componentProps: {
-        placeholder: '请输入姓名',
+        placeholder: 'Please type in your name',
         onInput: (e: any) => {
           console.log(e);
         },
       },
-      rules: [{ required: true, message: '请输入姓名', trigger: ['blur'] }],
+      rules: [{ required: true, message: 'Please type in your name', trigger: ['blur'] }],
     },
     {
       field: 'mobile',
       component: 'NInputNumber',
       label: '手机',
       componentProps: {
-        placeholder: '请输入手机号码',
+        placeholder: 'Please enter the phone number',
         showButton: false,
         onInput: (e: any) => {
           console.log(e);
@@ -119,16 +119,16 @@
     {
       field: 'type',
       component: 'NSelect',
-      label: '类型',
+      label: 'type',
       componentProps: {
-        placeholder: '请选择类型',
+        placeholder: 'Please choose the type',
         options: [
           {
-            label: '舒适性',
+            label: 'Comfort',
             value: 1,
           },
           {
-            label: '经济性',
+            label: 'Economy',
             value: 2,
           },
         ],
@@ -140,7 +140,7 @@
     {
       field: 'makeDate',
       component: 'NDatePicker',
-      label: '预约时间',
+      label: 'Appointment',
       componentProps: {
         type: 'date',
         clearable: true,
@@ -153,7 +153,7 @@
     {
       field: 'makeTime',
       component: 'NTimePicker',
-      label: '停留时间',
+      label: 'Stay time',
       componentProps: {
         clearable: true,
         onUpdateValue: (e: any) => {
@@ -163,27 +163,27 @@
     },
     {
       field: 'status',
-      label: '状态',
+      label: 'state',
       //插槽
       slot: 'statusSlot',
     },
     {
       field: 'makeProject',
       component: 'NCheckbox',
-      label: '预约项目',
+      label: 'Appointment project',
       componentProps: {
-        placeholder: '请选择预约项目',
+        placeholder: 'Please select an appointment project',
         options: [
           {
-            label: '种牙',
+            label: 'Dental implants',
             value: 1,
           },
           {
-            label: '补牙',
+            label: 'Fill your teeth',
             value: 2,
           },
           {
-            label: '根管',
+            label: 'Root canal',
             value: 3,
           },
         ],
@@ -195,15 +195,15 @@
     {
       field: 'makeSource',
       component: 'NRadioGroup',
-      label: '来源',
+      label: 'source',
       componentProps: {
         options: [
           {
-            label: '网上',
+            label: 'Online',
             value: 1,
           },
           {
-            label: '门店',
+            label: 'Store',
             value: 2,
           },
         ],
@@ -234,7 +234,7 @@
 
   const actionColumn = reactive({
     width: 220,
-    title: '操作',
+    title: 'operate',
     key: 'action',
     fixed: 'right',
     render(record) {
@@ -242,18 +242,18 @@
         style: 'button',
         actions: [
           {
-            label: '删除',
+            label: 'delete',
             icon: 'ic:outline-delete-outline',
             onClick: handleDelete.bind(null, record),
-            // 根据业务控制是否显示 isShow 和 auth 是并且关系
+            // Whether the business control is displayed isShow And auth is related to
             ifShow: () => {
               return true;
             },
-            // 根据权限控制是否显示: 有权限，会显示，支持多个
+            // Whether the permission control is displayed: there is permission, it will be displayed, support multiple
             auth: ['basic_list'],
           },
           {
-            label: '编辑',
+            label: 'edit',
             onClick: handleEdit.bind(null, record),
             ifShow: () => {
               return true;
@@ -263,15 +263,15 @@
         ],
         dropDownActions: [
           {
-            label: '启用',
+            label: 'Enable',
             key: 'enabled',
-            // 根据业务控制是否显示: 非enable状态的不显示启用按钮
+            // Whether the business control is displayed: the not displayed button of the non-enable status
             ifShow: () => {
               return true;
             },
           },
           {
-            label: '禁用',
+            label: 'Disable',
             key: 'disabled',
             ifShow: () => {
               return true;
@@ -279,7 +279,7 @@
           },
         ],
         select: (key) => {
-          message.info(`您点击了，${key} 按钮`);
+          message.info(`You click,${key} Button`);
         },
       });
     },
@@ -312,26 +312,26 @@
     formBtnLoading.value = true;
     formRef.value.validate((errors) => {
       if (!errors) {
-        message.success('新建成功');
+        message.success('New success');
         setTimeout(() => {
           showModal.value = false;
           reloadTable();
         });
       } else {
-        message.error('请填写完整信息');
+        message.error('Please fill in the full information');
       }
       formBtnLoading.value = false;
     });
   }
 
   function handleEdit(record: Recordable) {
-    console.log('点击了编辑', record);
+    console.log('Click to edit', record);
     router.push({ name: 'basic-info', params: { id: record.id } });
   }
 
   function handleDelete(record: Recordable) {
-    console.log('点击了删除', record);
-    message.info('点击了删除');
+    console.log('Click to delete', record);
+    message.info('Click to delete');
   }
 
   function handleSubmit(values: Recordable) {
