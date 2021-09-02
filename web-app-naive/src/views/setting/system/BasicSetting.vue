@@ -84,7 +84,7 @@
           address: '',
           loginCode: 0,
           closeText:
-            'On website maintenance, you can't access it! This website is underway system maintenance and technology upgrade, the website is temporarily unable to access, please understand!',
+            'On website maintenance, you can\'t access it! This website is underway system maintenance and technology upgrade, the website is temporarily unable to access, please understand!',
           systemOpen: true,
         },
       });
