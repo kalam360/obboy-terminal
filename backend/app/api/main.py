@@ -30,10 +30,12 @@ def get_data(symbol):
     df = df[::-1]
     res = {
         'instrument': symbol,
-        'ohlcv': df.values.tolist()
-        
+        'ohlcv': df.values.tolist(),
+        'settings': {},
+        'grid': {} 
     }
     return res
+
 @app.get('/instruments')
 def get_instruments():
     df = pd.read_csv('../data-modeling/data/instruments.csv')
